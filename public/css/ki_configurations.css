@@ -1,0 +1,140 @@
+/* Main layout styles */
+.main-content {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 60px);
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+/* Header styles */
+.content-container h1 {
+    color: #1B1B1B;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    border-bottom: 2px solid #0078D4;
+    padding-bottom: 0.5rem;
+}
+
+.content-container h2 {
+    color: #323130;
+    font-size: 1.4rem;
+    margin: 1.5rem 0;
+    font-weight: 500;
+}
+
+/* Table styles */
+.table-container {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: #f3f2f1;
+    border-bottom: 2px solid #e1dfdd;
+    color: #323130;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f3f9fe;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+    color: #323130;
+}
+
+/* Status indicator */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status-active {
+    background-color: #dff6dd;
+    color: #107c10;
+}
+
+.status-inactive {
+    background-color: #fde7e9;
+    color: #a4262c;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #0078D4;
+    border-color: #0078D4;
+    padding: 0.375rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #106EBE;
+    border-color: #106EBE;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.pagination .page-link {
+    color: #0078D4;
+    padding: 0.5rem 1rem;
+    border-color: #e1dfdd;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0078D4;
+    border-color: #0078D4;
+}
+
+/* Alert styles */
+.alert-success {
+    background-color: #dff6dd;
+    border-color: #c3e6cb;
+    color: #107c10;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .content-container {
+        padding: 1rem;
+    }
+    
+    .table td, .table th {
+        padding: 0.75rem;
+    }
+}
