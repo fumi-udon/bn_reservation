@@ -8,10 +8,28 @@ use App\Http\Requests\ReservationRequest;
 use App\Models\KiConfiguration;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+    private const URL1 = 'https://bistronippon.tn/buzy_tel';
+    private const URL2 = 'https://bistronippon.tn/buzy_impossible';
+    private const URL3 = 'https://bistronippon.tn/close_info';
+
+    private $openMode = null;  // DBの結果をキャッシュ
+
+    public function __construct()
+    {
+        try {
+            $result = DB::select('SELECT open FROM wor4285_fumi_open_modes WHERE ID = 1');
+            $this->openMode = !empty($result) ? $result[0]->open : 0;
+        } catch (\Exception $e) {
+            Log::error('Open mode 初期化エラー: ' . $e->getMessage());
+            $this->openMode = 0;
+        }
+    }
+
     //debug
     public function reservation_wa()
     {
@@ -51,30 +69,44 @@ class ReservationController extends Controller
      */
     public function showForm()
     {
-        // reservationページの設定を取得
-        $config = KiConfiguration::where('page_id', 'reservation')->first();
-
-        // エラーメッセージの定義
-        $errorMessages = [
-            1 => 'Welcome! Our online reservation system is ready to accept your booking.',
-            2 => 'System Maintenance Notice: We are currently updating our reservation system.',
-            3 => 'We are experiencing high demand and are fully booked. ',
-            4 => 'Holiday Notice: Our restaurant is currently closed for vacation. We look forward to serving you upon our return. For future reservations, please check back soon.'
-        ];
-
-        // 設定が存在し、status1が設定されている場合
-        if ($config) {
-            $status = $config->status1;
-            $message = $errorMessages[$status] ?? 'System status unknown.';
-
-            return view('reservations.form', [
-                'status' => $status,
-                'message' => $message,
-                'config' => $config
-            ]);
+        // ページ setting
+        switch ($this->openMode) {
+            case 1:
+                return redirect(self::URL1);
+            case 2:
+                return redirect(self::URL2);
+            case 3:
+                return redirect(self::URL3);
+            case 0:
+            default:
+                // リダイレクトせずに処理を続行
+                break;  // ここがポイント
         }
 
-        // 設定が存在しない場合は通常表示
+        // // reservationページの設定を取得
+        // $config = KiConfiguration::where('page_id', 'reservation')->first();
+
+        // // エラーメッセージの定義
+        // $errorMessages = [
+        //     1 => 'Welcome! Our online reservation system is ready to accept your booking.',
+        //     2 => 'System Maintenance Notice: We are currently updating our reservation system.',
+        //     3 => 'We are experiencing high demand and are fully booked. ',
+        //     4 => 'Holiday Notice: Our restaurant is currently closed for vacation. We look forward to serving you upon our return. For future reservations, please check back soon.'
+        // ];
+
+        // // 設定が存在し、status1が設定されている場合
+        // if ($config) {
+        //     $status = $config->status1;
+        //     $message = $errorMessages[$status] ?? 'System status unknown.';
+
+        //     return view('reservations.form', [
+        //         'status' => $status,
+        //         'message' => $message,
+        //         'config' => $config
+        //     ]);
+        // }
+
+        // // 設定が存在しない場合は通常表示
         return view('reservations.form', [
             'status' => 1,
             'message' => $errorMessages[1],
