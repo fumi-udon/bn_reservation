@@ -87,28 +87,16 @@ class ReservationController extends Controller
         // $config = KiConfiguration::where('page_id', 'reservation')->first();
 
         // // エラーメッセージの定義
-        // $errorMessages = [
-        //     1 => 'Welcome! Our online reservation system is ready to accept your booking.',
-        //     2 => 'System Maintenance Notice: We are currently updating our reservation system.',
-        //     3 => 'We are experiencing high demand and are fully booked. ',
-        //     4 => 'Holiday Notice: Our restaurant is currently closed for vacation. We look forward to serving you upon our return. For future reservations, please check back soon.'
-        // ];
-
-        // // 設定が存在し、status1が設定されている場合
-        // if ($config) {
-        //     $status = $config->status1;
-        //     $message = $errorMessages[$status] ?? 'System status unknown.';
-
-        //     return view('reservations.form', [
-        //         'status' => $status,
-        //         'message' => $message,
-        //         'config' => $config
-        //     ]);
-        // }
+        $errorMessages = [
+            1 => 'Welcome! Our online reservation system is ready to accept your booking.',
+            2 => 'System Maintenance Notice: We are currently updating our reservation system.',
+            3 => 'We are experiencing high demand and are fully booked. ',
+            4 => 'Holiday Notice: Our restaurant is currently closed for vacation. We look forward to serving you upon our return. For future reservations, please check back soon.'
+        ];
 
         // // 設定が存在しない場合は通常表示
         return view('reservations.form', [
-            'status' => 1,
+            'status' => $this->openMode,
             'message' => $errorMessages[1],
             'config' => null
         ]);

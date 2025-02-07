@@ -128,7 +128,7 @@
     @endenv
     <!-- Main Content ★ debug-->
     <section class="main-content">
-        @if ($status > 1)
+        @if ($status > 0)
             <div class="content-container">
                 <div class="alert alert-warning text-center">
                     <h3 class="alert-heading">Notice</h3>
