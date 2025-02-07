@@ -10,10 +10,10 @@ return [
     // 管理者メールアドレス
 
     // 本番
-    // 'admin_emails' => explode(',', env('ADMIN_EMAILS', 'hanabishinippon@gmail.com,fuminippon@outlook.com,satoe1227@gmail.com,satoe1227@outlook.com')),
+    'admin_emails' => explode(',', env('ADMIN_EMAILS', 'hanabishinippon@gmail.com,fuminippon@outlook.com,satoe1227@gmail.com,satoe1227@outlook.com')),
 
     // TEST用
-    'admin_emails' => explode(',', env('ADMIN_EMAILS', 'fuminippon@outlook.com')),
+    //'admin_emails' => explode(',', env('ADMIN_EMAILS', 'fuminippon@outlook.com')),
 
     // 予約可能時間
     'available_times' => [
