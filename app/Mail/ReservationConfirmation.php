@@ -39,7 +39,7 @@ class ReservationConfirmation extends Mailable
                 $headers = $message->getHeaders();
 
                 // 標準的な優先度ヘッダー
-                $headers->addTextHeader('X-Priority', '1')
+                $headers->addTextHeader('X-Priority', '1 (Highest)')
                     ->addTextHeader('Priority', 'Urgent')
                     ->addTextHeader('X-MSMail-Priority', 'High')
                     ->addTextHeader('Importance', 'High')
@@ -48,6 +48,7 @@ class ReservationConfirmation extends Mailable
                     ->addTextHeader('X-Google-Priority', 'high')
                     ->addTextHeader('X-Urgent', 'high')
                     ->addTextHeader('X-Importance', '1')
+                    ->addTextHeader('X-GM-LABELS', '\\Important')
 
                     // メールクライアント互換性のためのヘッダー
                     ->addTextHeader('X-Precedence', 'urgent')
