@@ -13,3 +13,18 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# Fichiers de session et de cache Laravel
+storage/framework/sessions/*
+storage/framework/views/*
+storage/framework/cache/*
+storage/logs/*
+bootstrap/cache/*
+
+# Fichiers spécifiques
+.env*
+composer.phar
+check_env.php
+public/check_env.php
+public/check_user.php
+
