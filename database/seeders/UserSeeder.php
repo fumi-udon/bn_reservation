@@ -12,8 +12,14 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('123456')
+            'email' => 'admin@bistronippon.com',
+            'password' => Hash::make('2017')
+        ]);
+        // 新しいユーザー追加
+        User::create([
+            'name' => 'nippon',
+            'email' => 'admin@bistronippon.tn',
+            'password' => Hash::make('2017')
         ]);
     }
 }
