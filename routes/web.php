@@ -36,6 +36,31 @@ Route::prefix('reservation')->group(function () {
 
 Route::get('/reservation_wa', [ReservationController::class, 'reservation_wa'])->name('reservation.wa');
 
+use App\Http\Controllers\Auth\LoginController;
+
+// ログイン関連のルート
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// 管理者ページのルート（認証必須）
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/data', function () {
+        return view('admin.data');
+    })->name('admin.data');
+});
+
+Route::middleware(['auth'])->group(function () {
+    // 既存のルート
+    Route::get('/admin/data', function () {
+        return view('admin.data');
+    })->name('admin.data');
+
+    // 予約管理ルートを追加
+    Route::get('/admin/reservations', [App\Http\Controllers\Admin\ReservationController::class, 'index'])
+        ->name('admin.reservations');
+});
+
 // setting page
 use App\Http\Controllers\KiConfigurationController;
 

@@ -1,0 +1,1 @@
+[2025-02-08 19:43:49] local.ERROR: Open mode 初期化エラー: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'bistrgrnippon.wor4285_fumi_open_modes' doesn't exist (SQL: SELECT open FROM wor4285_fumi_open_modes WHERE ID = 1)  
