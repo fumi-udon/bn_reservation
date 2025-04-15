@@ -17,29 +17,21 @@ return [
 
     // 予約可能時間
     'available_times' => [
-<<<<<<< HEAD
         '12:00',
         '12:30',
         '13:00',
         '13:30',
         '14:00',
         '14:30',
-        '14:45',        
-=======
-        '18:00', // Ramadan
->>>>>>> 659349398eac7c05233655994a6ec186e06d626f
+        '14:45',
         '18:30',
         '19:00',
         '19:30',
         '20:00',
         '20:30',
-<<<<<<< HEAD
         '21:00',
         '21:30',
         '21:45',
-=======
-        '20:45',
->>>>>>> 659349398eac7c05233655994a6ec186e06d626f
     ],
 
     // 予約人数の制限
@@ -63,8 +55,8 @@ return [
         'address' => '29 Rue Tahar Ben Achour, Marsa',
         'phone' => '+216 24 986 077',
         'business_hours' => 'Mon - Sat: 12:00 PM – 3:00 PM / 6:30 PM – 10:30 PM (Last order: 10:00 PM)',
-        // 'open_hours' => '12:00 - 15:00 / 18:30 - 22:30 (Last order: 22:00)',
-        'open_hours' => 'Ramadan hours: 18:00 - 22:00 (Last order: 21:30)',
+        'open_hours' => '12:00 - 15:00 / 18:30 - 22:30 (Last order: 22:00)',
+        //'open_hours' => 'Ramadan hours: 18:00 - 22:00 (Last order: 21:30)',
         'closed_days' => ['Sunday'],
     ],
 ];
