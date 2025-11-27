@@ -17,6 +17,14 @@ class ContactController extends Controller
     }
 
     /**
+     * Display contact form
+     */
+    public function sunday()
+    {
+        return view('sunday');
+    }
+
+    /**
      * Process the form submission
      */
     public function submit(Request $request)
@@ -44,9 +52,9 @@ class ContactController extends Controller
     private function formatWhatsAppMessage($data)
     {
         return "*New Contact Form Submission*\n" .
-               "Name: {$data['name']}\n" .
-               "Phone: {$data['phone']}\n" .
-               "Type: {$data['inquiry_type']}\n" .
-               "Message: {$data['message']}";
+            "Name: {$data['name']}\n" .
+            "Phone: {$data['phone']}\n" .
+            "Type: {$data['inquiry_type']}\n" .
+            "Message: {$data['message']}";
     }
 }

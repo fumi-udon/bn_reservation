@@ -19,9 +19,10 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\ContactController;
-
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
+// Sunday Gluten Free
+Route::get('/sunday', [ContactController::class, 'sunday'])->name('sunday');
 
 // キタノ予約ページ
 use App\Http\Controllers\ReservationController;
