@@ -354,12 +354,12 @@
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <p class="hero-subtitle">DECEMBER LIMITED • EVERY SUNDAY</p>
-            <h1 class="hero-title">THE NIPPON<br>SUNDAY EDIT</h1>
+            <p class="hero-subtitle">New project</p>
+            <h1 class="hero-title">BISTRO NIPPON<br>SUNDAY EDIT</h1>
             <p class="hero-tagline serif-font">Gluten-Free Dining</p>
             <hr style="width: 50px; margin: 20px auto; border-color: var(--accent-gold); opacity: 1;">
-            <p class="fs-5 fst-italic">Authentic Taste. Modern Balance.<br>
-                <span style="font-size: 0.9rem; opacity: 0.8;">Goût Authentique. Équilibre Moderne.</span>
+            <p class="fs-5 fst-italic">OPEN SUNDAY<br>
+                <span style="font-size: 0.9rem; opacity: 0.8;">DECEMBER LIMITED</span>
             </p>
         </div>
     </section>
@@ -443,7 +443,7 @@
                 <div class="col-md-8">
 
                     <div class="mb-5 position-relative">
-                        <img src="{{ asset('images/gf1.jpg') }}" alt="Gluten-Free Dish" class="img-fluid w-100 shadow"
+                        <img src="{{ asset('images/gf1.png') }}" alt="Gluten-Free Dish" class="img-fluid w-100 shadow"
                             style="border-radius: 2px; border: 1px solid rgba(197, 160, 89, 0.3); max-height: 350px; object-fit: cover;">
                         <div class="text-center mt-2">
                             <span
