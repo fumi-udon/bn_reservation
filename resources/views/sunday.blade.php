@@ -504,42 +504,12 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="system-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="serif-font">OUR COMMITMENT</h2>
-                <p class="text-muted">Transparency First. Choose with confidence.</p>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <div class="system-box green">
-                        <div class="d-flex align-items-center mb-2">
-                            <i class="bi bi-circle-fill text-success me-2"></i>
-                            <h4 class="m-0 fw-bold text-success">ZERO GLUTEN</h4>
-                        </div>
-                        <p class="fw-bold small text-uppercase text-secondary">Def: Wheat-Free & Safe Condiments</p>
-                        <p class="mb-1">Prepared exclusively with GF Tamari, Rice Miso, Rice Vinegar, and GF
-                            Mayonnaise.</p>
-                        <p class="small text-muted fst-italic">Recommended for: Celiac, Gluten Intolerance.</p>
-                    </div>
-
-                    <div class="system-box yellow">
-                        <div class="d-flex align-items-center mb-2">
-                            <i class="bi bi-circle-fill text-warning me-2"></i>
-                            <h4 class="m-0 fw-bold text-warning" style="color: #F57F17 !important;">MICRO GLUTEN</h4>
-                        </div>
-                        <p class="fw-bold small text-uppercase text-secondary">Def: Trace Elements (ppm level)</p>
-                        <p class="mb-1">We use specific authentic seasonings (Mirin, Dashi) essential for depth.
-                            While wheat ingredients are excluded, these may contain micro-traces.</p>
-                        <p class="small text-muted fst-italic">Target: Gluten-Conscious, Health Optimization.</p>
+                    <div class="text-center mt-5 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                        <h4 class="serif-font text-white" style="font-size: 1.1rem; letter-spacing: 0.5px;">
+                            A selection of Bistro Nippon classics is also available.
+                        </h4>
                     </div>
                 </div>
             </div>
