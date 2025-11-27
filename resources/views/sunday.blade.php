@@ -339,13 +339,13 @@
             <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('images/gf_head.png') }}" alt="Sunday Mood 1">
+                        <img src="{{ asset('images/gf_head.jpg') }}" alt="Sunday Mood 1">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/gf_head2.png') }}" alt="Sunday Mood 2">
+                        <img src="{{ asset('images/gf_head2.jpg') }}" alt="Sunday Mood 2">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/gf_head3.png') }}" alt="Sunday Mood 3">
+                        <img src="{{ asset('images/gf_head3.jpg') }}" alt="Sunday Mood 3">
                     </div>
                 </div>
             </div>
@@ -443,7 +443,7 @@
                 <div class="col-md-8">
 
                     <div class="mb-5 position-relative">
-                        <img src="{{ asset('images/gf1.png') }}" alt="Gluten-Free Dish" class="img-fluid w-100 shadow"
+                        <img src="{{ asset('images/gf1.jpg') }}" alt="Gluten-Free Dish" class="img-fluid w-100 shadow"
                             style="border-radius: 2px; border: 1px solid rgba(197, 160, 89, 0.3); max-height: 350px; object-fit: cover;">
                         <div class="text-center mt-2">
                             <span
