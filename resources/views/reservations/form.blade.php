@@ -122,9 +122,9 @@
     @include('layouts.navbar')
 
     @env('local')
-    <div>
-        <h3>ローカル環境</h3>
-    </div>
+        <div>
+            <h3>ローカル環境</h3>
+        </div>
     @endenv
     <!-- Main Content ★ debug-->
     <section class="main-content">
@@ -270,43 +270,43 @@
             $(document).ready(function() {
                 const $dateInput = $('#date');
 
-                // Bootstrap alertを使用したエラー表示関数
-                function showError(message) {
-                    // 既存のアラートを削除
-                    $('.alert-sunday').remove();
+                // // Bootstrap alertを使用したエラー表示関数
+                // function showError(message) {
+                //     // 既存のアラートを削除
+                //     $('.alert-sunday').remove();
 
-                    // Bootstrapアラートを作成
-                    const $alert = $('<div>', {
-                        class: 'alert alert-danger alert-dismissible fade show alert-sunday mt-2',
-                        role: 'alert'
-                    }).append(
-                        message,
-                        $('<button>', {
-                            type: 'button',
-                            class: 'btn-close',
-                            'data-bs-dismiss': 'alert',
-                            'aria-label': 'Close'
-                        })
-                    );
+                //     // Bootstrapアラートを作成
+                //     const $alert = $('<div>', {
+                //         class: 'alert alert-danger alert-dismissible fade show alert-sunday mt-2',
+                //         role: 'alert'
+                //     }).append(
+                //         message,
+                //         $('<button>', {
+                //             type: 'button',
+                //             class: 'btn-close',
+                //             'data-bs-dismiss': 'alert',
+                //             'aria-label': 'Close'
+                //         })
+                //     );
 
-                    // 日付入力フィールドの後にアラートを挿入
-                    $dateInput.after($alert);
-                }
+                //     // 日付入力フィールドの後にアラートを挿入
+                //     $dateInput.after($alert);
+                // }
 
-                $dateInput.on('change', function() {
-                    const selectedDate = new Date($(this).val());
+                // $dateInput.on('change', function() {
+                //     const selectedDate = new Date($(this).val());
 
-                    if (selectedDate.getDay() === 0) {
-                        showError('Sorry, we are closed on Sundays.<br>日曜日は定休日です。');
-                        $(this).val(''); // 日付をクリア
+                //     if (selectedDate.getDay() === 0) {
+                //         showError('Sorry, we are closed on Sundays.<br>日曜日は定休日です。');
+                //         $(this).val(''); // 日付をクリア
 
-                        // オプション：日付入力フィールドにフォーカスを戻す
-                        $(this).focus();
-                    } else {
-                        // エラーメッセージが表示されている場合は削除
-                        $('.alert-sunday').remove();
-                    }
-                });
+                //         // オプション：日付入力フィールドにフォーカスを戻す
+                //         $(this).focus();
+                //     } else {
+                //         // エラーメッセージが表示されている場合は削除
+                //         $('.alert-sunday').remove();
+                //     }
+                // });
 
                 // オプション：日付選択の制限を追加
                 const today = new Date();
