@@ -268,47 +268,26 @@
     @push('scripts')
         <script>
             $(document).ready(function() {
+                // 1. 定義を一番上に
                 const $dateInput = $('#date');
 
-                // // Bootstrap alertを使用したエラー表示関数
-                // function showError(message) {
-                //     // 既存のアラートを削除
-                //     $('.alert-sunday').remove();
+                // 2. 年末年始休業のチェック (2025/12/31 - 2026/01/04)
+                $dateInput.on('change', function() {
+                    const selectedDate = new Date($(this).val());
 
-                //     // Bootstrapアラートを作成
-                //     const $alert = $('<div>', {
-                //         class: 'alert alert-danger alert-dismissible fade show alert-sunday mt-2',
-                //         role: 'alert'
-                //     }).append(
-                //         message,
-                //         $('<button>', {
-                //             type: 'button',
-                //             class: 'btn-close',
-                //             'data-bs-dismiss': 'alert',
-                //             'aria-label': 'Close'
-                //         })
-                //     );
+                    // JSの月は0始まり (0=1月, 11=12月)
+                    const start = new Date(2025, 11, 31); // 2025-12-31
+                    const end = new Date(2026, 0, 4); // 2026-01-04
 
-                //     // 日付入力フィールドの後にアラートを挿入
-                //     $dateInput.after($alert);
-                // }
+                    // 期間内ならエラー
+                    if (selectedDate >= start && selectedDate <= end) {
+                        alert('Sorry, we are closed from Dec 31 to Jan 4 for New Year holidays.');
+                        $(this).val(''); // 日付をクリア
+                        return;
+                    }
+                });
 
-                // $dateInput.on('change', function() {
-                //     const selectedDate = new Date($(this).val());
-
-                //     if (selectedDate.getDay() === 0) {
-                //         showError('Sorry, we are closed on Sundays.<br>日曜日は定休日です。');
-                //         $(this).val(''); // 日付をクリア
-
-                //         // オプション：日付入力フィールドにフォーカスを戻す
-                //         $(this).focus();
-                //     } else {
-                //         // エラーメッセージが表示されている場合は削除
-                //         $('.alert-sunday').remove();
-                //     }
-                // });
-
-                // オプション：日付選択の制限を追加
+                // 3. 日付選択範囲の制限
                 const today = new Date();
                 const maxDate = new Date();
                 maxDate.setDate(today.getDate() + {{ config('reservation_bn.booking_end_days') }});
