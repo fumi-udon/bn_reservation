@@ -9,7 +9,7 @@
                 <p class="mb-3"><i
                         class="bi bi-clock-fill me-2"></i>{{ config('reservation_bn.restaurant_info.open_hours') }}
                 </p>
-                <p class="mb-1"><i class="bi bi-calendar-x-fill me-2"></i>Closed on Sunday</p>
+
             </div>
         </div>
 

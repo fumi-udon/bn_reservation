@@ -122,9 +122,9 @@
     @include('layouts.navbar')
 
     @env('local')
-    <div>
-        <h3>ローカル環境</h3>
-    </div>
+        <div>
+            <h3>ローカル環境</h3>
+        </div>
     @endenv
     <!-- Main Content ★ debug-->
     <section class="main-content">
@@ -205,10 +205,6 @@
                         <p class="mb-2">
                             <i class="bi bi-clock-fill me-2"></i>
                             Hours: {{ config('reservation_bn.restaurant_info.business_hours') }}
-                        </p>
-                        <p class="mb-0">
-                            <i class="bi bi-calendar-x-fill me-2"></i>
-                            Closed: Sunday
                         </p>
                     </div>
 
