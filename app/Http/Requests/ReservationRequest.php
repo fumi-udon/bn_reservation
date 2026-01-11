@@ -37,12 +37,12 @@ class ReservationRequest extends FormRequest
                 'date',
                 'after:' . $now->addDays(config('reservation_bn.booking_start_days') - 1),
                 'before:' . $now->addDays(config('reservation_bn.booking_end_days')),
-                function ($attribute, $value, $fail) {
-                    $date = \Carbon\Carbon::parse($value)->timezone('Africa/Tunis');
-                    if ($date->isSunday()) {
-                        $fail('Sorry, we are closed on Sundays.');
-                    }
-                },
+                // function ($attribute, $value, $fail) {
+                //     $date = \Carbon\Carbon::parse($value)->timezone('Africa/Tunis');
+                //     if ($date->isSunday()) {
+                //         $fail('Sorry, we are closed on Sundays.');
+                //     }
+                // },
             ],
             'time' => 'required|in:' . implode(',', config('reservation_bn.available_times')),
             'guests' => [

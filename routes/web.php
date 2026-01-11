@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\ContactController;
+
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 // Sunday Gluten Free
