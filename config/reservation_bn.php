@@ -56,9 +56,8 @@ return [
         'address' => '29 Rue Tahar Ben Achour, Marsa',
         'phone' => '+216 24 986 077',
         // ...
-        'business_hours' => 'Mon - Sat: 12:00 PM – 3:00 PM / 6:30 PM – 10:30 PM (LO 10:00 PM)<br>Sun: 1:00 PM – 4:00 PM / 6:30 PM – 9:00 PM',
-        'open_hours' => 'Mon - Sat: 12:00 - 15:00 / 18:30 - 22:30 (LO 22:00)<br>Sun: 13:00 - 16:00 / 18:30 - 21:00',
+        'business_hours' => 'Mon - Sat: 12:00 PM – 3:00 PM / 6:30 PM – 10:00 PM  Sun: 1:00 PM – 4:00 PM / 6:30 PM – 9:00 PM',
+        'open_hours' => 'Mon - Sat: 12:00 - 15:00 / 18:30 - 22:00    Sun: 13:00 - 16:00 / 18:30 - 21:00',
         //'open_hours' => 'Ramadan hours: 18:00 - 22:00 (Last order: 21:30)',
-        'closed_days' => ['Sunday'],
     ],
 ];
