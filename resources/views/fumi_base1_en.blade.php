@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bistro Nippon Menu - Édition Française (A4 Fit)</title>
+    <title>Bistro Nippon Menu - English Edition (A4 Fit)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
             color: var(--text-main);
             font-family: var(--font-base);
             font-weight: 400;
-            /* 行間をさらに詰めてA4に収める */
+            /* 行間を詰めてA4に収める */
             line-height: 1.25;
             -webkit-font-smoothing: antialiased;
         }
@@ -41,7 +41,7 @@
             min-height: 297mm;
             margin: 40px auto;
             background: #fff;
-            /* 上下の余白を12mm→10mmに短縮 */
+            /* 余白設定をフランス語版と統一 */
             padding: 10mm 20mm;
             box-sizing: border-box;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
@@ -66,7 +66,6 @@
         h1.main-title {
             font-family: var(--font-base);
             font-size: 1.5rem;
-            /* 少し縮小 */
             font-weight: 600;
             text-transform: uppercase;
             text-align: center;
@@ -82,7 +81,6 @@
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: #999;
-            /* タイトル下の余白を大幅カット */
             margin-bottom: 1.5rem;
         }
 
@@ -93,7 +91,6 @@
             letter-spacing: 0.15em;
             border-bottom: 1px solid var(--text-main);
             padding-bottom: 4px;
-            /* カテゴリ周りの余白を圧縮 */
             margin-top: 1.2rem;
             margin-bottom: 0.6rem;
             color: var(--text-main);
@@ -105,7 +102,6 @@
 
         /* 4. Menu Items */
         .menu-item {
-            /* アイテム間の余白を0.9rem→0.65remに圧縮 */
             margin-bottom: 0.65rem;
         }
 
@@ -118,7 +114,6 @@
 
         .item-name {
             font-size: 0.85rem;
-            /* 改行を防ぐため微調整 */
             font-weight: 500;
             letter-spacing: 0.05em;
             color: var(--text-main);
@@ -140,7 +135,6 @@
 
         .item-desc {
             font-size: 0.7rem;
-            /* 説明文を小さく */
             color: var(--text-sub);
             line-height: 1.2;
             letter-spacing: 0.01em;
@@ -188,7 +182,6 @@
                 box-shadow: none;
                 margin: 0;
                 width: 100%;
-                /* 印刷時の余白も調整 */
                 padding: 10mm 20mm;
             }
 
@@ -211,69 +204,69 @@
 
     <div class="menu-container">
 
-        <div class="lang-tag">FR</div>
+        <div class="lang-tag">EN</div>
 
         <h1 class="main-title">Bistro Nippon</h1>
-        <div class="subtitle">Cuisine Japonaise Authentique</div>
+        <div class="subtitle">Authentic Japanese Cuisine</div>
 
         <div class="row gx-5">
             <div class="col-6">
 
-                <h2 class="category-title mt-0">Entrées & Tapas</h2>
+                <h2 class="category-title mt-0">Appetizers & Tapas</h2>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Magret de Canard Rôti</span>
+                        <span class="item-name">Roasted Duck</span>
                         <span class="item-price">19 DT</span>
                     </div>
-                    <div class="item-desc">Magret de Canard Grillé 60g, Sauce Teriyaki</div>
+                    <div class="item-desc">Grilled duck breast (60g) with Teriyaki sauce</div>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Poulet Paiko</span>
+                        <span class="item-name">Paiko Chicken</span>
                         <span class="item-price">19 DT</span>
                     </div>
-                    <div class="item-desc">Poulet frit avec une sauce à la japonaise</div>
+                    <div class="item-desc">Japanese-style fried chicken with savory sauce</div>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Soupe Miso Fruits de Mer</span>
+                        <span class="item-name">Seafood Miso Soup</span>
                         <span class="item-price">17 DT</span>
                     </div>
-                    <div class="item-desc">Soupe miso aux fruits de mer et algues wakamé</div>
+                    <div class="item-desc">Miso soup with mixed seafood and wakame seaweed</div>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Soupe Miso Wakamé</span>
+                        <span class="item-name">Wakame Miso Soup</span>
                         <span class="item-price">8 DT</span>
                     </div>
-                    <div class="item-desc">Soupe miso aux algues vertes wakamé</div>
+                    <div class="item-desc">Classic miso soup with wakame seaweed</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Tofu Caprese</span>
+                        <span class="item-name">Caprese Tofu</span>
                         <span class="item-price">12 DT</span>
                     </div>
-                    <div class="item-desc">Tofu mariné pendant 24h, texture crémeuse</div>
+                    <div class="item-desc">24h marinated tofu, rich and creamy texture</div>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Harusame & kikurage</span>
+                        <span class="item-name">Harusame Salad</span>
                         <span class="item-price">14 DT</span>
                     </div>
-                    <div class="item-desc">Vermicelles de soja transparents, champignons noirs</div>
+                    <div class="item-desc">Glass noodle salad with wood ear mushrooms</div>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Wakamé Zestée</span>
+                        <span class="item-name">Zesty Wakame</span>
                         <span class="item-price">12 DT</span>
                     </div>
-                    <div class="item-desc">Algues et champignons noirs, légumes, huile de sésame et citron</div>
+                    <div class="item-desc">Seaweed and crisp vegetables with sesame oil and lemon</div>
                 </div>
 
                 <div class="menu-item">
@@ -281,38 +274,38 @@
                         <span class="item-name">Croquettes <small>(2 pcs)</small></span>
                         <span class="item-price">8 DT</span>
                     </div>
-                    <div class="item-desc">Croquettes de pommes de terre, sauce teriyaki maison</div>
+                    <div class="item-desc">Potato croquettes with homemade Teriyaki sauce</div>
                 </div>
 
-                <h2 class="category-title">Donburi & Riz</h2>
+                <h2 class="category-title">Rice Dishes (Donburi)</h2>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Donburi au Bœuf</span>
+                        <span class="item-name">Beef Donburi</span>
                         <span class="item-price">35 DT</span>
                     </div>
-                    <div class="item-desc">Grande portion de riz, bœuf grillé 150g, légumes</div>
+                    <div class="item-desc">Large rice bowl topped with grilled beef (150g) & veggies</div>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Katsu Don (Poulet)</span>
+                        <span class="item-name">Chicken Katsu Don</span>
                         <span class="item-price">28 DT</span>
                     </div>
-                    <div class="item-desc">Grande portion de riz, poulet frit, oignon, omelette</div>
+                    <div class="item-desc">Large rice bowl with fried chicken, onion, and egg</div>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Onigiri <small>(1 pièce)</small></span>
+                        <span class="item-name">Onigiri <small>(1 pc)</small></span>
                     </div>
                     <div class="option-group">
                         <div class="option-row">
-                            <span class="option-name">Fromage</span>
+                            <span class="option-name">Cheese</span>
                             <span class="option-price">6 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Poulet</span>
+                            <span class="option-name">Chicken</span>
                             <span class="option-price">7 DT</span>
                         </div>
                     </div>
@@ -320,18 +313,18 @@
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Riz Blanc</span>
+                        <span class="item-name">White Rice</span>
                         <span class="item-price">4 DT</span>
                     </div>
                 </div>
 
-                <h2 class="category-title">Menu Enfant</h2>
+                <h2 class="category-title">Kids Menu</h2>
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Set Riz Sauté / Nouilles</span>
+                        <span class="item-name">Fried Rice / Noodle Set</span>
                         <span class="item-price">15 DT</span>
                     </div>
-                    <div class="item-desc">Mini portion (riz ou nouilles) + poulet frit</div>
+                    <div class="item-desc">Mini portion (rice or noodles) + mini fried chicken</div>
                 </div>
 
             </div>
@@ -342,20 +335,20 @@
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Ramen Tantan Épicé</span>
+                        <span class="item-name">Spicy Tantan Ramen</span>
                     </div>
-                    <div class="item-desc">Bouillon riche sésame et miso pimenté, bœuf haché</div>
+                    <div class="item-desc">Rich sesame broth, spicy miso, minced beef</div>
                     <div class="option-group">
                         <div class="option-row">
-                            <span class="option-name">Wakamé</span>
+                            <span class="option-name">Wakame</span>
                             <span class="option-price">31.5 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Poulet Frit</span>
+                            <span class="option-name">Fried Chicken</span>
                             <span class="option-price">33 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Bœuf (150g)</span>
+                            <span class="option-name">Beef (150g)</span>
                             <span class="option-price">43 DT</span>
                         </div>
                     </div>
@@ -363,20 +356,20 @@
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Ramen Tokyo Soja</span>
+                        <span class="item-name">Tokyo Soy Sauce Ramen</span>
                     </div>
-                    <div class="item-desc">Bouillon classique et léger à la sauce soja, œuf</div>
+                    <div class="item-desc">Classic light soy sauce broth with egg</div>
                     <div class="option-group">
                         <div class="option-row">
-                            <span class="option-name">Poulet & Légumes</span>
+                            <span class="option-name">Chicken & Veggies</span>
                             <span class="option-price">29 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Poulet Frit</span>
+                            <span class="option-name">Fried Chicken</span>
                             <span class="option-price">33 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Bœuf (150g)</span>
+                            <span class="option-name">Beef (150g)</span>
                             <span class="option-price">43 DT</span>
                         </div>
                     </div>
@@ -386,16 +379,16 @@
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Udon Forestier</span>
+                        <span class="item-name">Forest Udon</span>
                     </div>
-                    <div class="item-desc">Nouilles nappées d'une crème d'épinards, champignons</div>
+                    <div class="item-desc">Noodles topped with creamy spinach sauce & mushrooms</div>
                     <div class="option-group">
                         <div class="option-row">
-                            <span class="option-name">Algues Nori</span>
+                            <span class="option-name">Nori Seaweed</span>
                             <span class="option-price">29 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Fruits de Mer</span>
+                            <span class="option-name">Seafood</span>
                             <span class="option-price">39 DT</span>
                         </div>
                     </div>
@@ -403,16 +396,16 @@
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Udon Gingembre</span>
+                        <span class="item-name">Ginger Udon</span>
                     </div>
-                    <div class="item-desc">Bouillon chaud gingembre et sauce soja, poireaux</div>
+                    <div class="item-desc">Hot ginger soy sauce broth with leeks</div>
                     <div class="option-group">
                         <div class="option-row">
-                            <span class="option-name">Algues Mixtes</span>
+                            <span class="option-name">Mixed Seaweed</span>
                             <span class="option-price">30 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Fruits de Mer</span>
+                            <span class="option-name">Seafood</span>
                             <span class="option-price">39 DT</span>
                         </div>
                     </div>
@@ -420,47 +413,53 @@
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Udon Poulet Katsu</span>
+                        <span class="item-name">Chicken Katsu Udon</span>
                         <span class="item-price">28 DT</span>
                     </div>
-                    <div class="item-desc">Nouilles épaisses avec poulet frit, sauce teriyaki</div>
+                    <div class="item-desc">Thick noodles with fried chicken in Teriyaki sauce</div>
                 </div>
 
                 <h2 class="category-title">Yakisoba</h2>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Yakisoba Nippon</span>
+                        <span class="item-name">Nippon Yakisoba</span>
                     </div>
-                    <div class="item-desc">Nouilles fines sautées aux légumes émincés</div>
+                    <div class="item-desc">Stir-fried thin noodles with vegetables</div>
                     <div class="option-group">
                         <div class="option-row">
-                            <span class="option-name">Algues & Légumes</span>
+                            <span class="option-name">Seaweed & Veggies</span>
                             <span class="option-price">28 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Poulet Paiko</span>
+                            <span class="option-name">Paiko Chicken</span>
                             <span class="option-price">33 DT</span>
                         </div>
                         <div class="option-row">
-                            <span class="option-name">Fruits de Mer</span>
+                            <span class="option-name">Seafood</span>
                             <span class="option-price">39 DT</span>
                         </div>
                     </div>
                 </div>
 
-                <h2 class="category-title">Desserts & Thés</h2>
+                <h2 class="category-title">Desserts & Tea</h2>
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Gelée d'Amande "Annin"</span>
+                        <span class="item-name">Silky Annin Jelly</span>
                         <span class="item-price">9 DT</span>
                     </div>
                 </div>
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Pudding Matcha</span>
+                        <span class="item-name">Matcha Pudding</span>
                         <span class="item-price">9 DT</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Sesame Pudding</span>
+                        <span class="item-price">8 DT</span>
                     </div>
                 </div>
 
@@ -468,19 +467,19 @@
 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Thé vert Sencha <small>(600ml)</small></span>
+                        <span class="item-name">Sencha Green Tea <small>(600ml)</small></span>
                         <span class="item-price">9 DT</span>
                     </div>
                 </div>
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Citronnade Chaude</span>
+                        <span class="item-name">Hot Lemonade</span>
                         <span class="item-price">9 DT</span>
                     </div>
                 </div>
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Eau <small>(1.5L)</small> / Soda</span>
+                        <span class="item-name">Water <small>(1.5L)</small> / Soda</span>
                         <span class="item-price">4 DT</span>
                     </div>
                 </div>

@@ -72,8 +72,8 @@ Route::resource('ki-configurations', KiConfigurationController::class);
 Route::get('/fumi', function () {
     return view('fumi');
 });
-Route::get('/fumi_canard', function () {
-    return view('fumi_canard');
+Route::get('/gf_carte', function () {
+    return view('gf_carte');
 });
 Route::get('/fumi2', function () {
     return view('fumi2');
@@ -107,6 +107,9 @@ Route::get('/fumi_canard2', function () {
 });
 Route::get('/fumi_base1', function () {
     return view('fumi_base1');
+});
+Route::get('/fumi_base1_en', function () {
+    return view('fumi_base1_en');
 });
 // fumi_carte_jesser
 Route::get('/fumi_carte_jesser', function () {
