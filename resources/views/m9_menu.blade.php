@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ensô x bistronippon - Menu (Final Corrected)</title>
+    <title>Ensô x bistronippon - Menu (English Final)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -225,7 +225,6 @@
 
         .gallery-item .img-container {
             height: 60px;
-            /* Optimized height for A4 fit */
         }
 
         /* Single Large Image */
@@ -456,7 +455,7 @@
                 <section
                     style="background-color: var(--highlight-bg); padding: 8px; border-radius: 4px; margin: -8px -8px 20px -8px;">
 
-                    <h2 style="border-color: #d1d5db;">Tokyo Mazesoba <span class="jp">まぜそば</span></h2>
+                    <h2 style="border-color: #d1d5db;">Tokyo Mix Ramen <span class="jp">(Mazesoba)</span></h2>
 
                     <div style="font-size: 8.5px; color: var(--text-main); margin-bottom: 10px; font-weight: 500;">
                         Japanese Mixing Noodles (Rich Umami Sauce).<br>
@@ -465,25 +464,25 @@
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mazesoba - Chicken</span><span
+                        <div class="item-top"><span class="name">Mix Ramen - Chicken</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Standard style with Garlic Oil & Chicken Char Siu.</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mazesoba - Veggie</span><span
+                        <div class="item-top"><span class="name">Mix Ramen - Veggie</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Garlic Oil sauce with assorted seasonal vegetables.</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mazesoba - Ebi Bomb</span><span
+                        <div class="item-top"><span class="name">Mix Ramen - Ebi Bomb</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Topped with Marinated Shrimp & Aromatic Shrimp Powder.</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mazesoba - "Red Mala"</span><span
+                        <div class="item-top"><span class="name">Mix Ramen - "Red Mala"</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Exclusive Spicy & Numbing Sauce. Select Topping:</div>
                         <div class="options">
@@ -493,9 +492,9 @@
                     </div>
 
                     <div class="figure-box single-image">
-                        <span class="figure-caption">Fig 05. Tokyo Mazesoba Set</span>
+                        <span class="figure-caption">Fig 05. Tokyo Mix Ramen Set</span>
                         <div class="img-container">
-                            <img src="{{ asset('images/mix_ramen.png') }}" alt="Mazesoba Set" class="img-full">
+                            <img src="{{ asset('images/mix_ramen.png') }}" alt="Mix Ramen Set" class="img-full">
                         </div>
                     </div>
                 </section>

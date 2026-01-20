@@ -32,7 +32,6 @@
 
         body {
             background-color: #e5e5e5;
-            /* 日本語フォント Noto Sans JP を優先 */
             font-family: 'Noto Sans JP', 'Inter', sans-serif;
             color: var(--text-main);
             font-size: 9.5px;
@@ -66,7 +65,6 @@
 
         h1 {
             font-family: 'Inter', sans-serif;
-            /* 英語タイトルはInter */
             font-size: 22px;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -449,7 +447,7 @@
                 <section
                     style="background-color: var(--highlight-bg); padding: 8px; border-radius: 4px; margin: -8px -8px 20px -8px;">
 
-                    <h2 style="border-color: #d1d5db;">東京まぜそば <span class="en">Tokyo Mazesoba</span></h2>
+                    <h2 style="border-color: #d1d5db;">東京まぜそば <span class="en">Tokyo Mix Ramen</span></h2>
 
                     <div style="font-size: 8.5px; color: var(--text-main); margin-bottom: 10px; font-weight: 500;">
                         日本の「混ぜて食べる」麺（濃厚旨味ダレ）。<br>
