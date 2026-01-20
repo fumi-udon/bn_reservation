@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ensô x bistronippon - Menu (Final Hybrid)</title>
+    <title>Ensô x bistronippon - Menu (Japanese Hybrid)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <style>
-        /* ■■■ ENSO x BISTRONIPPON DESIGN SYSTEM ■■■ */
+        /* ■■■ ENSO x BISTRONIPPON DESIGN SYSTEM (JP Edition) ■■■ */
         :root {
             --bg-color: #ffffff;
             --text-main: #2f3e46;
@@ -32,10 +32,11 @@
 
         body {
             background-color: #e5e5e5;
-            font-family: 'Inter', sans-serif;
+            /* 日本語フォント Noto Sans JP を優先 */
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
             color: var(--text-main);
             font-size: 9.5px;
-            line-height: 1.35;
+            line-height: 1.4;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -64,6 +65,8 @@
         }
 
         h1 {
+            font-family: 'Inter', sans-serif;
+            /* 英語タイトルはInter */
             font-size: 22px;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -73,13 +76,11 @@
         }
 
         .sub-header {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Noto Sans JP', sans-serif;
             font-size: 8px;
             color: var(--text-sub);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
             text-align: right;
-            line-height: 1.4;
+            line-height: 1.5;
             border-left: 1px solid var(--line-color);
             padding-left: 10px;
         }
@@ -104,10 +105,9 @@
         }
 
         h2 {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
             border-bottom: 1px solid var(--line-color);
             padding-bottom: 3px;
             margin-bottom: 10px;
@@ -117,8 +117,9 @@
             color: var(--accent-blue);
         }
 
-        h2 span.jp {
-            font-weight: 300;
+        h2 span.en {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
             font-size: 9px;
             color: var(--text-sub);
             letter-spacing: 0.05em;
@@ -138,8 +139,8 @@
 
         .name {
             font-weight: 500;
-            font-size: 10px;
-            letter-spacing: 0.03em;
+            font-size: 10.5px;
+            letter-spacing: 0.02em;
         }
 
         .price {
@@ -168,7 +169,6 @@
         }
 
         .opt-item {
-            font-family: 'JetBrains Mono', monospace;
             font-size: 8.5px;
             font-weight: 500;
             color: var(--accent-emerald-text);
@@ -187,10 +187,9 @@
         }
 
         .figure-caption {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
             font-size: 7.5px;
             color: var(--text-main);
-            text-transform: uppercase;
             margin-bottom: 3px;
             display: block;
             letter-spacing: 0.05em;
@@ -244,10 +243,9 @@
 
         .mala-title {
             font-size: 8.5px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--accent-blue);
             margin-bottom: 2px;
-            text-transform: uppercase;
         }
 
         .mala-text {
@@ -291,10 +289,9 @@
             padding-top: 8px;
             display: flex;
             justify-content: space-between;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Noto Sans JP', sans-serif;
             font-size: 8px;
             color: var(--text-sub);
-            text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
@@ -332,8 +329,8 @@
         <header>
             <h1>Ensô x bistronippon</h1>
             <div class="sub-header">
-                Authentic Japanese Dining<br>
-                Menzah, Tunis
+                本格日本料理ダイニング<br>
+                チュニジア・メンザ店
             </div>
         </header>
 
@@ -342,53 +339,51 @@
             <div class="column">
 
                 <section>
-                    <h2>Kémia & Tapas <span class="jp">前菜・おつまみ</span></h2>
+                    <h2>前菜・おつまみ <span class="en">Kémia & Tapas</span></h2>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Handmade Gyoza (4pcs/8pcs)</span><span
-                                class="price">XX/XX</span></div>
-                        <div class="desc">Classic Japanese ravioli (Chicken & Veg).</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-top"><span class="name">Roast Beef Plate</span><span class="price">XX</span>
+                        <div class="item-top"><span class="name">手作り餃子 (4個/8個)</span><span class="price">XX/XX</span>
                         </div>
-                        <div class="desc">Slices of tender roast beef (Tataki style).</div>
+                        <div class="desc">毎日手包みしています。鶏肉と野菜の自家製餡。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">"Kuro-Feta" Tofu</span><span class="price">XX</span>
+                        <div class="item-top"><span class="name">ローストビーフ皿</span><span class="price">XX</span></div>
+                        <div class="desc">低温調理でしっとりと仕上げた牛のたたき風。</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">"黒フェタ"（豆腐のオイル漬け）</span><span class="price">XX</span>
                         </div>
-                        <div class="desc">Japanese Tofu marinated in Dashi & Olive Oil.</div>
+                        <div class="desc">出汁とオリーブオイルに漬け込んだ、和製フェタチーズ風の豆腐。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Japanese Croquette (2pcs)</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Classic mashed potato & meat croquettes.</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-top"><span class="name">Chicken Katsu Plate</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Crispy Chicken Cutlet with Tonkatsu sauce.</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-top"><span class="name">Wakame Salad</span><span class="price">XX</span>
+                        <div class="item-top"><span class="name">日本のポテトコロッケ (2個)</span><span class="price">XX</span>
                         </div>
-                        <div class="desc">Refreshing seaweed salad with sesame.</div>
+                        <div class="desc">ジャガイモと挽肉で作る、昔ながらのホクホクコロッケ。</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">チキンカツ皿 (おつまみ)</span><span class="price">XX</span>
+                        </div>
+                        <div class="desc">サクサクの衣と特製ソース。シェアに最適です。</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">ワカメサラダ</span><span class="price">XX</span></div>
+                        <div class="desc">ごま油香るさっぱりとした海藻サラダ。</div>
                     </div>
 
                     <div class="gallery-row">
                         <div class="gallery-item">
-                            <span class="figure-caption">Fig 01. Gyoza</span>
+                            <span class="figure-caption">Fig 01. 焼き餃子</span>
                             <div class="img-container">
                                 <img src="{{ asset('images/mix_ramen.png') }}" alt="Gyoza" class="img-full">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <span class="figure-caption">Fig 02. Roast Beef</span>
+                            <span class="figure-caption">Fig 02. ローストビーフ</span>
                             <div class="img-container">
                                 <img src="{{ asset('images/mix_ramen.png') }}" alt="Roast Beef" class="img-full">
                             </div>
@@ -397,58 +392,54 @@
                 </section>
 
                 <section>
-                    <h2>Ramen Nippon <span class="jp">ラーメン</span></h2>
-                    <div style="font-size: 8.5px; color: var(--text-sub); margin-bottom: 10px; font-style: italic;">
-                        Chef's Golden Silky Soup (Rich Umami & Collagen). No MSG.
+                    <h2>ラーメン <span class="en">Ramen Nippon</span></h2>
+                    <div style="font-size: 8.5px; color: var(--text-sub); margin-bottom: 10px; font-weight: 300;">
+                        シェフ特製 "黄金シルキースープ" (コラーゲン・旨味 / 化学調味料不使用)
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Ramen Nippon - Classic</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Signature creamy broth with special Soy Sauce.</div>
+                        <div class="item-top"><span class="name">鶏白湯 - 醤油</span><span class="price">XX</span></div>
+                        <div class="desc">特製醤油ダレと黄金スープのシグネチャーラーメン。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Ramen Nippon - Tantan</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Spicy sesame broth, homemade chili oil, minced meat.</div>
+                        <div class="item-top"><span class="name">鶏白湯 - 担々麺</span><span class="price">XX</span></div>
+                        <div class="desc">濃厚な胡麻の香りと自家製ラー油。ピリ辛の肉味噌乗せ。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Ebi Ramen (Shrimp)</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Golden broth topped with Marinated Shrimp & Aroma Oil.</div>
+                        <div class="item-top"><span class="name">海老ラーメン</span><span class="price">XX</span></div>
+                        <div class="desc">特製海老油の芳醇な香り。プリプリの漬け海老トッピング。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Luxury Beef Ramen</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Golden broth topped with slices of Roast Beef.</div>
+                        <div class="item-top"><span class="name">贅沢ビーフラーメン</span><span class="price">XX</span></div>
+                        <div class="desc">黄金スープに自家製ローストビーフを乗せた贅沢な一杯。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mala Ramen</span><span class="price">XX</span></div>
-                        <div class="desc">Infused with Exclusive "Mala" Sauce.</div>
+                        <div class="item-top"><span class="name">麻辣（マーラー）ラーメン</span><span class="price">XX</span>
+                        </div>
+                        <div class="desc">特製「麻辣」ソースを使用。痺れる辛さのプレミアムな一杯。</div>
                         <div class="mala-box">
-                            <div class="mala-title">★ New Discovery in Tunisia</div>
+                            <div class="mala-title">★ チュニジアでの新体験</div>
                             <div class="mala-text">
-                                "Mala" creates a <strong>numbing & spicy</strong> electric taste. Experience the flavor
-                                Tokyo loves.
+                                「麻辣（マーラー）」とは花椒の痺れと唐辛子の辛さが融合した、東京で大人気の味です。刺激的な美味しさをぜひ。
                             </div>
                         </div>
                     </div>
 
                     <div class="gallery-row">
                         <div class="gallery-item">
-                            <span class="figure-caption">Fig 03. Ramen Nippon</span>
+                            <span class="figure-caption">Fig 03. 鶏白湯ラーメン</span>
                             <div class="img-container">
                                 <img src="{{ asset('images/mix_ramen.png') }}" alt="Ramen" class="img-full">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <span class="figure-caption">Fig 04. Ebi Ramen</span>
+                            <span class="figure-caption">Fig 04. 麻辣ラーメン</span>
                             <div class="img-container">
-                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Ebi Ramen" class="img-full">
+                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Mala" class="img-full">
                             </div>
                         </div>
                     </div>
@@ -461,104 +452,98 @@
                 <section
                     style="background-color: var(--highlight-bg); padding: 8px; border-radius: 4px; margin: -8px -8px 20px -8px;">
 
-                    <h2 style="border-color: #d1d5db;">Tokyo Mix Ramen <span class="jp">まぜそば</span></h2>
+                    <h2 style="border-color: #d1d5db;">東京まぜそば <span class="en">Tokyo Mix Ramen</span></h2>
 
                     <div style="font-size: 8.5px; color: var(--text-main); margin-bottom: 10px; font-weight: 500;">
-                        (Mazesoba) Japanese Mixing Noodles with Rich Sauce.<br>
-                        Includes Mini Soup & Dive Rice. <span style="color: var(--accent-emerald-text);">★ Chef's
-                            Recommendation</span>
+                        日本の「混ぜて食べる」麺（濃厚旨味ダレ）。<br>
+                        ミニスープ・追い飯付き <span style="color: var(--accent-emerald-text);">★ シェフのおすすめ</span>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - Chicken</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Standard style with Garlic Oil & Chicken Char Siu.</div>
+                        <div class="item-top"><span class="name">まぜそば - チキン</span><span class="price">XX</span>
+                        </div>
+                        <div class="desc">鶏チャーシューと特製ガーリックオイルの定番スタイル。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - Veggie</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Garlic Oil sauce with assorted seasonal vegetables.</div>
+                        <div class="item-top"><span class="name">まぜそば - ベジ</span><span class="price">XX</span>
+                        </div>
+                        <div class="desc">季節の野菜とガーリックオイルのヘルシーな一杯。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - Ebi Bomb</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Topped with Marinated Shrimp & Aromatic Shrimp Powder.</div>
+                        <div class="item-top"><span class="name">まぜそば - 海老ボム</span><span class="price">XX</span>
+                        </div>
+                        <div class="desc">漬け海老と特製「海老粉」をトッピング。香りが爆発します。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - Roast Beef</span><span
+                        <div class="item-top"><span class="name">まぜそば - ローストビーフ</span><span
                                 class="price">XX</span></div>
-                        <div class="desc">Luxury style with Roast Beef & Egg Yolk.</div>
+                        <div class="desc">ローストビーフと卵黄を乗せた豪華な油そばスタイル。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - "Red Mala"</span><span
+                        <div class="item-top"><span class="name">まぜそば - "赤" 麻辣（マーラー）</span><span
                                 class="price">XX</span></div>
-                        <div class="desc">Exclusive Spicy & Numbing Sauce. Select Topping:</div>
+                        <div class="desc">痺れる辛さの特製ソース。具材をお選びください：</div>
                         <div class="options">
-                            <span class="opt-item">[ ] Chicken</span>
-                            <span class="opt-item">[ ] Veggie</span>
+                            <span class="opt-item">[ ] チキン</span>
+                            <span class="opt-item">[ ] ベジ</span>
                         </div>
                     </div>
 
                     <div class="figure-box single-image">
-                        <span class="figure-caption">Fig 05. Tokyo Mazesoba (Beef)</span>
+                        <span class="figure-caption">Fig 05. 東京まぜそばセット</span>
                         <div class="img-container">
-                            <img src="{{ asset('images/mix_ramen.png') }}" alt="Mazesoba Set" class="img-full">
+                            <img src="{{ asset('images/mix_ramen.png') }}" alt="Mix Ramen Set" class="img-full">
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h2>Rice Specialties <span class="jp">丼・カレー</span></h2>
+                    <h2>丼・カレー <span class="en">Rice Specialties</span></h2>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Golden Katsu-Don</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Simmered Chicken Cutlet with Egg & Dashi.</div>
+                        <div class="item-top"><span class="name">黄金カツ丼</span><span class="price">XX</span></div>
+                        <div class="desc">特製出汁と卵でとじた、王道のチキンカツ丼。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Golden Katsu-Don w/ Cheese</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Golden Katsu-Don topped with melted Mozzarella.</div>
+                        <div class="item-top"><span class="name">チーズカツ丼</span><span class="price">XX</span></div>
+                        <div class="desc">とろけるモッツァレラチーズをトッピング。</div>
                     </div>
 
                     <div class="item" style="margin-top: 10px;">
-                        <div class="item-top"><span class="name">Curry - Crispy Katsu</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Tokyo Curry with Chicken Cutlet.</div>
+                        <div class="item-top"><span class="name">カツカレー</span><span class="price">XX</span></div>
+                        <div class="desc">じっくり煮込んだ東京カレーとサクサクのカツ。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Curry - Tokyo Ebi</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Tokyo Curry with Marinated Shrimp.</div>
+                        <div class="item-top"><span class="name">海老カレー</span><span class="price">XX</span></div>
+                        <div class="desc">カレーにプリプリの「漬け海老」をトッピング。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Curry - Roast Beef</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Tokyo Curry with tender Roast Beef.</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-top"><span class="name">Daily Onigiri</span><span class="price">XX</span>
+                        <div class="item-top"><span class="name">ローストビーフカレー</span><span class="price">XX</span>
                         </div>
-                        <div class="desc">Handmade Rice Balls (Limited Qty).</div>
+                        <div class="desc">カレーに柔らかいローストビーフをトッピング。</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">手作りおにぎり</span><span class="price">XX</span></div>
+                        <div class="desc">ツナマヨなど（※数量限定）</div>
                     </div>
 
                     <div class="gallery-row">
                         <div class="gallery-item">
-                            <span class="figure-caption">Fig 06. Curry Rice</span>
+                            <span class="figure-caption">Fig 06. カレーライス</span>
                             <div class="img-container">
                                 <img src="{{ asset('images/mix_ramen.png') }}" alt="Curry Rice" class="img-full">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <span class="figure-caption">Fig 07. Onigiri</span>
+                            <span class="figure-caption">Fig 07. おにぎり</span>
                             <div class="img-container">
                                 <img src="{{ asset('images/mix_ramen.png') }}" alt="Onigiri" class="img-full">
                             </div>
@@ -567,14 +552,14 @@
                 </section>
 
                 <section>
-                    <h2>Drinks & Sweets <span class="jp">甘味・飲料</span></h2>
+                    <h2>甘味・飲料 <span class="en">Drinks & Sweets</span></h2>
                     <div class="options" style="justify-content: space-between; width: 100%;">
-                        <span style="font-size: 8.5px; color: var(--text-main);">Mystic Kombucha (12)</span>
-                        <span style="font-size: 8.5px; color: var(--text-main);">Green Tea / Citronnade (9)</span>
-                        <span style="font-size: 8.5px; color: var(--text-main);">Water / Soda (4)</span>
+                        <span style="font-size: 8.5px; color: var(--text-main);">自家製コンブチャ (12)</span>
+                        <span style="font-size: 8.5px; color: var(--text-main);">緑茶 / シトロナード (9)</span>
+                        <span style="font-size: 8.5px; color: var(--text-main);">水 / ソーダ (4)</span>
                     </div>
                     <div class="desc" style="margin-top: 6px;">
-                        <strong>Daily Dessert:</strong> Please ask our team.
+                        <strong>本日のデザート:</strong> スタッフにお尋ねください。
                     </div>
                 </section>
 
@@ -583,7 +568,7 @@
 
         <footer>
             <span>Authentic Japanese Cuisine</span>
-            <span>All prices in TND (DT)</span>
+            <span>表示価格は税込です (TND)</span>
         </footer>
 
     </div>
