@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ensô x bistronippon - Menu</title>
+    <title>Ensô x bistronippon - Menu (Final Corrected)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,6 +21,7 @@
             --accent-emerald-bg: #eaf6f3;
             --accent-emerald-text: #007f5f;
             --line-color: #b0bec5;
+            --highlight-bg: #f4f6f7;
         }
 
         * {
@@ -33,21 +34,20 @@
             background-color: #e5e5e5;
             font-family: 'Inter', sans-serif;
             color: var(--text-main);
-            font-size: 10px;
+            font-size: 9.5px;
             line-height: 1.35;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* A4 Paper Simulation */
         .sheet {
             background: var(--bg-color);
             width: 210mm;
             height: 297mm;
             margin: 20px auto;
-            padding-top: 35mm;
-            padding-bottom: 25mm;
-            padding-left: 22mm;
-            padding-right: 22mm;
+            padding-top: 30mm;
+            padding-bottom: 20mm;
+            padding-left: 20mm;
+            padding-right: 20mm;
             position: relative;
             box-shadow: 0 15px 40px rgba(0, 78, 100, 0.15);
             overflow: hidden;
@@ -56,26 +56,25 @@
         /* --- HEADER --- */
         header {
             border-bottom: 2px solid var(--line-color);
-            padding-bottom: 14px;
-            margin-bottom: 26px;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             line-height: 1;
             color: var(--accent-blue);
-            margin-right: 40px;
         }
 
         .sub-header {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 8.5px;
+            font-size: 8px;
             color: var(--text-sub);
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -89,7 +88,7 @@
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            column-gap: 12mm;
+            column-gap: 10mm;
             height: auto;
         }
 
@@ -100,18 +99,18 @@
 
         /* --- SECTIONS --- */
         section {
-            margin-bottom: 26px;
+            margin-bottom: 22px;
             position: relative;
         }
 
         h2 {
-            font-size: 11.5px;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.12em;
             border-bottom: 1px solid var(--line-color);
-            padding-bottom: 4px;
-            margin-bottom: 12px;
+            padding-bottom: 3px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -120,39 +119,14 @@
 
         h2 span.jp {
             font-weight: 300;
-            font-size: 9.5px;
+            font-size: 9px;
             color: var(--text-sub);
             letter-spacing: 0.05em;
         }
 
-        /* --- FEATURED IMAGE (New) --- */
-        .section-header-with-image {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 12px;
-            border-bottom: 1px solid var(--line-color);
-            padding-bottom: 4px;
-        }
-
-        .header-text {
-            flex-grow: 1;
-        }
-
-        .featured-img {
-            width: 45px;
-            height: 45px;
-            object-fit: cover;
-            border-radius: 2px;
-            margin-left: 10px;
-            margin-bottom: 4px;
-            filter: grayscale(20%);
-            border: 1px solid var(--line-color);
-        }
-
         /* --- ITEMS --- */
         .item {
-            margin-bottom: 11px;
+            margin-bottom: 9px;
             position: relative;
         }
 
@@ -164,80 +138,167 @@
 
         .name {
             font-weight: 500;
-            font-size: 10.5px;
+            font-size: 10px;
             letter-spacing: 0.03em;
         }
 
         .price {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 500;
             color: var(--accent-blue);
         }
 
         .desc {
-            font-size: 9px;
+            font-size: 8.5px;
             color: var(--text-sub);
-            margin-top: 2px;
+            margin-top: 1px;
             font-weight: 300;
-            padding-right: 10px;
-            line-height: 1.35;
+            padding-right: 5px;
+            line-height: 1.3;
         }
 
-        /* --- OPTIONS / SUB-SELECT --- */
+        /* --- SUB-SELECT --- */
         .options {
-            margin-top: 4px;
+            margin-top: 3px;
             padding-left: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 5px;
         }
 
         .opt-item {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
+            font-size: 8.5px;
             font-weight: 500;
             color: var(--accent-emerald-text);
             background: var(--accent-emerald-bg);
-            padding: 2px 6px;
+            padding: 2px 5px;
             border-radius: 3px;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
-        /* Badge for Signature Items */
-        .badge {
-            font-size: 8px;
-            background-color: var(--accent-blue);
-            color: #fff;
-            padding: 1px 4px;
-            border-radius: 2px;
-            margin-left: 5px;
-            font-weight: 400;
+        /* --- IMAGES & FIGURES --- */
+        .figure-box {
+            margin-top: 12px;
+            border-top: 1px solid #eee;
+            padding-top: 6px;
+        }
+
+        .figure-caption {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            margin-bottom: 3px;
+            display: block;
             letter-spacing: 0.05em;
-            vertical-align: middle;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+        }
+
+        .img-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            border-radius: 2px;
+        }
+
+        .img-full {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%);
+        }
+
+        /* Gallery Row (2 Images) */
+        .gallery-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            border-top: 1px solid #eee;
+            padding-top: 6px;
+        }
+
+        .gallery-item {
+            flex: 1;
+        }
+
+        .gallery-item .img-container {
+            height: 60px;
+            /* Optimized height for A4 fit */
+        }
+
+        /* Single Large Image */
+        .single-image .img-container {
+            height: 90px;
+        }
+
+        /* --- MALA EXPLAINER BOX --- */
+        .mala-box {
+            margin-top: 5px;
+            margin-bottom: 8px;
+            padding: 6px 8px;
+            border: 1px dashed var(--line-color);
+            background-color: #fafafa;
+            border-radius: 4px;
+        }
+
+        .mala-title {
+            font-size: 8.5px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .mala-text {
+            font-size: 8px;
+            color: var(--text-sub);
+            line-height: 1.3;
+        }
+
+        /* --- SECTION HEADER IMAGE --- */
+        .section-header-with-image {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 4px;
+        }
+
+        .header-text {
+            flex-grow: 1;
+        }
+
+        .featured-img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-left: 10px;
+            margin-bottom: 2px;
+            filter: grayscale(20%);
+            border: 1px solid var(--line-color);
         }
 
         /* --- FOOTER --- */
         footer {
             position: absolute;
-            bottom: 20mm;
-            left: 22mm;
-            right: 22mm;
+            bottom: 15mm;
+            left: 20mm;
+            right: 20mm;
             border-top: 1px solid var(--line-color);
-            padding-top: 10px;
+            padding-top: 8px;
             display: flex;
             justify-content: space-between;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 8.5px;
+            font-size: 8px;
             color: var(--text-sub);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        /* ■■■ PRINT SETTINGS ■■■ */
         @media print {
             * {
                 -webkit-print-color-adjust: exact !important;
@@ -269,7 +330,6 @@
 <body>
 
     <div class="sheet">
-
         <header>
             <h1>Ensô x bistronippon</h1>
             <div class="sub-header">
@@ -288,13 +348,13 @@
                     <div class="item">
                         <div class="item-top"><span class="name">Handmade Gyoza (4pcs/8pcs)</span><span
                                 class="price">XX/XX</span></div>
-                        <div class="desc">Classic Japanese ravioli (Chicken & Veg). Homemade wrapper.</div>
+                        <div class="desc">Classic Japanese ravioli (Chicken & Veg).</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Roast Duck Plate</span><span class="price">XX</span>
+                        <div class="item-top"><span class="name">Roast Beef Plate</span><span class="price">XX</span>
                         </div>
-                        <div class="desc">Slices of tender roasted duck breast.</div>
+                        <div class="desc">Slices of tender roast beef.</div>
                     </div>
 
                     <div class="item">
@@ -304,15 +364,15 @@
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Chicken Katsu Plate</span><span
+                        <div class="item-top"><span class="name">Japanese Croquette (2pcs)</span><span
                                 class="price">XX</span></div>
-                        <div class="desc">Crispy Chicken Cutlet with Tonkatsu sauce.</div>
+                        <div class="desc">Classic mashed potato & meat croquettes.</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Creamy Croquette (2pcs)</span><span
+                        <div class="item-top"><span class="name">Chicken Katsu Plate</span><span
                                 class="price">XX</span></div>
-                        <div class="desc">Potato & Meat creamy croquette.</div>
+                        <div class="desc">Crispy Chicken Cutlet with Tonkatsu sauce.</div>
                     </div>
 
                     <div class="item">
@@ -320,11 +380,26 @@
                         </div>
                         <div class="desc">Refreshing seaweed salad with sesame.</div>
                     </div>
+
+                    <div class="gallery-row">
+                        <div class="gallery-item">
+                            <span class="figure-caption">Fig 01. Gyoza</span>
+                            <div class="img-container">
+                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Gyoza" class="img-full">
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <span class="figure-caption">Fig 02. Roast Beef</span>
+                            <div class="img-container">
+                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Roast Beef" class="img-full">
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <section>
-                    <h2>Ramen Nippon <span class="jp">鶏白湯ラーメン</span></h2>
-                    <div style="font-size: 9px; color: var(--text-sub); margin-bottom: 12px; font-style: italic;">
+                    <h2>Ramen Nippon <span class="jp">ラーメン</span></h2>
+                    <div style="font-size: 8.5px; color: var(--text-sub); margin-bottom: 10px; font-style: italic;">
                         Chef's Golden Silky Soup (Rich Umami & Collagen). No MSG.
                     </div>
 
@@ -341,21 +416,36 @@
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mala Ramen <span
-                                    class="badge">SIGNATURE</span></span><span class="price">XX</span></div>
-                        <div class="desc">Infused with Exclusive "Mala" Sauce (Spicy & Numbing).</div>
-                    </div>
-
-                    <div class="item">
                         <div class="item-top"><span class="name">Ebi Ramen (Shrimp)</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Golden broth topped with Marinated Shrimp & Aroma Oil.</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Curry Ramen</span><span class="price">XX</span>
+                        <div class="item-top"><span class="name">Mala Ramen</span><span class="price">XX</span></div>
+                        <div class="desc">Infused with Exclusive "Mala" Sauce.</div>
+                        <div class="mala-box">
+                            <div class="mala-title">★ New Discovery in Tunisia</div>
+                            <div class="mala-text">
+                                "Mala" creates a <strong>numbing & spicy</strong> electric taste. Experience the flavor
+                                Tokyo loves.
+                            </div>
                         </div>
-                        <div class="desc">Creamy Japanese Curry broth topped with vegetables.</div>
+                    </div>
+
+                    <div class="gallery-row">
+                        <div class="gallery-item">
+                            <span class="figure-caption">Fig 03. Ramen Nippon</span>
+                            <div class="img-container">
+                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Ramen" class="img-full">
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <span class="figure-caption">Fig 04. Mala Ramen</span>
+                            <div class="img-container">
+                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Mala" class="img-full">
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -363,46 +453,49 @@
 
             <div class="column">
 
-                <section>
-                    <div class="section-header-with-image">
-                        <div class="header-text">
-                            <h2 style="border:none; margin:0; padding:0;">Tokyo Mix Ramen <span
-                                    class="jp">まぜそば</span></h2>
-                        </div>
-                        <img src="{{ asset('images/mix_ramen.png') }}" alt="Mix Ramen" class="featured-img">
-                    </div>
-                    <div style="border-bottom: 1px solid var(--line-color); margin-bottom: 12px;"></div>
+                <section
+                    style="background-color: var(--highlight-bg); padding: 8px; border-radius: 4px; margin: -8px -8px 20px -8px;">
 
-                    <div style="font-size: 9px; color: var(--text-sub); margin-bottom: 12px; font-style: italic;">
-                        Soupless Set: Noodle + Mini Soup + Dive Rice.<br>
-                        <strong>Top Recommendation / Recommandation du Chef</strong>
+                    <h2 style="border-color: #d1d5db;">Tokyo Mazesoba <span class="jp">まぜそば</span></h2>
+
+                    <div style="font-size: 8.5px; color: var(--text-main); margin-bottom: 10px; font-weight: 500;">
+                        Japanese Mixing Noodles (Rich Umami Sauce).<br>
+                        Includes Mini Soup & Dive Rice. <span style="color: var(--accent-emerald-text);">★ Chef's
+                            Recommendation</span>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - Chicken</span><span
+                        <div class="item-top"><span class="name">Mazesoba - Chicken</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Standard style with Garlic Oil & Chicken Char Siu.</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - Veggie</span><span
+                        <div class="item-top"><span class="name">Mazesoba - Veggie</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Garlic Oil sauce with assorted seasonal vegetables.</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - Ebi Bomb</span><span
+                        <div class="item-top"><span class="name">Mazesoba - Ebi Bomb</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Topped with Marinated Shrimp & Aromatic Shrimp Powder.</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Mix Ramen - "Red Mala"</span><span
+                        <div class="item-top"><span class="name">Mazesoba - "Red Mala"</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Exclusive Spicy & Numbing Sauce. Select Topping:</div>
                         <div class="options">
                             <span class="opt-item">[ ] Chicken</span>
                             <span class="opt-item">[ ] Veggie</span>
+                        </div>
+                    </div>
+
+                    <div class="figure-box single-image">
+                        <span class="figure-caption">Fig 05. Tokyo Mazesoba Set</span>
+                        <div class="img-container">
+                            <img src="{{ asset('images/mix_ramen.png') }}" alt="Mazesoba Set" class="img-full">
                         </div>
                     </div>
                 </section>
@@ -422,7 +515,7 @@
                         <div class="desc">Golden Katsu-Don topped with melted Mozzarella.</div>
                     </div>
 
-                    <div class="item" style="margin-top: 15px;">
+                    <div class="item" style="margin-top: 10px;">
                         <div class="item-top"><span class="name">Curry - Crispy Katsu</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Tokyo Curry with Chicken Cutlet.</div>
@@ -435,39 +528,36 @@
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">Curry - Veggie</span><span
-                                class="price">XX</span></div>
-                        <div class="desc">Tokyo Curry with seasonal vegetables.</div>
-                    </div>
-
-                    <div class="item">
                         <div class="item-top"><span class="name">Daily Onigiri</span><span class="price">XX</span>
                         </div>
                         <div class="desc">Handmade Rice Balls (Limited Qty).</div>
+                    </div>
+
+                    <div class="gallery-row">
+                        <div class="gallery-item">
+                            <span class="figure-caption">Fig 06. Curry Rice</span>
+                            <div class="img-container">
+                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Curry Rice" class="img-full">
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <span class="figure-caption">Fig 07. Onigiri</span>
+                            <div class="img-container">
+                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Onigiri" class="img-full">
+                            </div>
+                        </div>
                     </div>
                 </section>
 
                 <section>
                     <h2>Drinks & Sweets <span class="jp">甘味・飲料</span></h2>
-
-                    <div class="item">
-                        <div class="item-top"><span class="name">Mystic Kombucha</span><span
-                                class="price">12</span></div>
-                        <div class="desc">Hibiscus / Cinnamon. Natural probiotics.</div>
+                    <div class="options" style="justify-content: space-between; width: 100%;">
+                        <span style="font-size: 9px; color: var(--text-main);">Mystic Kombucha (12)</span>
+                        <span style="font-size: 9px; color: var(--text-main);">Green Tea / Citronnade (9)</span>
+                        <span style="font-size: 9px; color: var(--text-main);">Water / Soda (4)</span>
                     </div>
-                    <div class="item">
-                        <div class="item-top"><span class="name">Green Tea / Citronnade</span><span
-                                class="price">9</span></div>
-                    </div>
-                    <div class="item">
-                        <div class="item-top"><span class="name">Water / Soda</span><span class="price">4</span>
-                        </div>
-                    </div>
-
-                    <div class="item" style="margin-top: 10px;">
-                        <div class="desc" style="font-style: normal; color: var(--text-main);">
-                            <strong>Daily Dessert:</strong> Please ask our team.
-                        </div>
+                    <div class="desc" style="margin-top: 6px;">
+                        <strong>Daily Dessert:</strong> Please ask our team.
                     </div>
                 </section>
 

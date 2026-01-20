@@ -4,204 +4,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bistro Nippon Menu - Édition Française (A4 Fit)</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Bistro Nippon - Blue Architect Edition (Derja & Flags)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <style>
-        /* --- AURALEE / ATON Vibe : Modern Minimalist Style --- */
-
-        /* 1. Reset & Variables */
+        /* ■■■ BLUE ARCHITECT / FRAMING EDITION (DERJA & FLAGS) ■■■ */
         :root {
             --bg-color: #ffffff;
-            --text-main: #1a1a1a;
-            --text-sub: #555555;
-            --line-color: #e0e0e0;
-            --font-base: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
+            --text-main: #2f3e46;
+            --text-sub: #7f8c8d;
+            --accent-blue: #004e64;
+            --accent-emerald-bg: #eaf6f3;
+            --accent-emerald-text: #007f5f;
+            --line-color: #b0bec5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
             color: var(--text-main);
-            font-family: var(--font-base);
-            font-weight: 400;
-            /* 行間をさらに詰めてA4に収める */
-            line-height: 1.25;
+            font-size: 10px;
+            line-height: 1.35;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 2. Container (A4 Size) */
-        .menu-container {
+        /* A4 Paper Simulation */
+        .sheet {
+            background: var(--bg-color);
             width: 210mm;
-            min-height: 297mm;
-            margin: 40px auto;
-            background: #fff;
-            /* 上下の余白を12mm→10mmに短縮 */
-            padding: 10mm 20mm;
-            box-sizing: border-box;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
+            height: 297mm;
+            margin: 20px auto;
+
+            /* 上下の余白 */
+            padding-top: 38mm;
+            padding-bottom: 28mm;
+            padding-left: 22mm;
+            padding-right: 22mm;
+
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 78, 100, 0.15);
+            overflow: hidden;
+        }
+
+        /* --- HEADER --- */
+        header {
+            border-bottom: 2px solid var(--line-color);
+            padding-bottom: 14px;
+            margin-bottom: 26px;
+            display: flex;
+            justify-content: space-between;
+            /* align-items: flex-end; を削除し、個別に整列させる */
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1;
+            color: var(--accent-blue);
+            align-self: flex-end;
+            /* タイトルは下揃え */
+        }
+
+        /* ヘッダー右側のブロック（国旗＋サブヘッダー） */
+        .right-header-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        /* 国旗コンテナ */
+        .flags-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flag-fr {
+            width: 28px;
+            /* フランス国旗は少し大きく */
+            height: auto;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .flag-tn {
+            width: 18px;
+            /* チュニジア国旗は小さく */
+            height: auto;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8.5px;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: right;
+            line-height: 1.4;
+            /* 国旗の下に来るため、縦線は削除してスッキリさせる */
+            /* border-left: 1px solid var(--line-color); */
+            /* padding-left: 10px; */
+        }
+
+        /* --- GRID --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 12mm;
+            height: auto;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 11.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--accent-blue);
+        }
+
+        /* 方言タグのスタイル（旧 span.jp） */
+        h2 span.derja-tag {
+            font-weight: 400;
+            /* 少し存在感を出すため300から400へ */
+            font-size: 9px;
+            color: var(--text-sub);
+            letter-spacing: 0.05em;
+            text-transform: capitalize;
+            /* 頭文字を大文字に */
+        }
+
+        /* --- ITEMS --- */
+        .item {
+            margin-bottom: 11px;
             position: relative;
         }
 
-        /* IT Style Language Tag */
-        .lang-tag {
-            position: absolute;
-            top: 10mm;
-            right: 20mm;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-main);
-            border: 1px solid var(--text-main);
+        .item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .name {
+            font-weight: 500;
+            font-size: 10.5px;
+            letter-spacing: 0.03em;
+        }
+
+        .price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--accent-blue);
+        }
+
+        .desc {
+            font-size: 9px;
+            color: var(--text-sub);
+            margin-top: 2px;
+            font-weight: 300;
+            padding-right: 10px;
+            line-height: 1.3;
+        }
+
+        /* --- OPTIONS (Right Aligned) --- */
+        .options {
+            margin-top: 4px;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: flex-end;
+        }
+
+        .opt-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--accent-emerald-text);
+            background: var(--accent-emerald-bg);
             padding: 2px 6px;
-            letter-spacing: 0.05em;
-            opacity: 0.8;
+            border-radius: 3px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
-        /* 3. Typography */
-        h1.main-title {
-            font-family: var(--font-base);
-            font-size: 1.5rem;
-            /* 少し縮小 */
-            font-weight: 600;
-            text-transform: uppercase;
-            text-align: center;
-            letter-spacing: 0.25em;
-            margin-bottom: 0.1rem;
-            color: var(--text-main);
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: #999;
-            /* タイトル下の余白を大幅カット */
-            margin-bottom: 1.5rem;
-        }
-
-        h2.category-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 4px;
-            /* カテゴリ周りの余白を圧縮 */
-            margin-top: 1.2rem;
-            margin-bottom: 0.6rem;
-            color: var(--text-main);
-        }
-
-        .mt-0 {
-            margin-top: 0 !important;
-        }
-
-        /* 4. Menu Items */
-        .menu-item {
-            /* アイテム間の余白を0.9rem→0.65remに圧縮 */
-            margin-bottom: 0.65rem;
-        }
-
-        .item-header {
+        /* --- FOOTER --- */
+        footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 22mm;
+            right: 22mm;
+            border-top: 1px solid var(--line-color);
+            padding-top: 10px;
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0rem;
-        }
-
-        .item-name {
-            font-size: 0.85rem;
-            /* 改行を防ぐため微調整 */
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            color: var(--text-main);
-        }
-
-        .item-name small {
-            font-size: 0.75rem;
-            color: #999;
-            margin-left: 5px;
-            font-weight: 400;
-        }
-
-        .item-price {
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-        }
-
-        .item-desc {
-            font-size: 0.7rem;
-            /* 説明文を小さく */
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8.5px;
             color: var(--text-sub);
-            line-height: 1.2;
-            letter-spacing: 0.01em;
-            margin-top: 0px;
-        }
-
-        /* 5. Options */
-        .option-group {
-            margin-top: 0.2rem;
-        }
-
-        .option-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            font-size: 0.7rem;
-            color: var(--text-sub);
-            margin-bottom: 0.1rem;
-            padding-left: 10px;
-            border-left: 1px solid var(--line-color);
-        }
-
-        .option-name {
-            letter-spacing: 0.02em;
-        }
-
-        .option-price {
-            color: var(--text-main);
-            font-weight: 500;
-        }
-
-        /* 6. Print Settings */
-        @page {
-            size: A4;
-            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
             body {
-                background: white;
-                -webkit-print-color-adjust: exact;
-            }
-
-            .menu-container {
-                box-shadow: none;
+                background: none;
                 margin: 0;
-                width: 100%;
-                /* 印刷時の余白も調整 */
-                padding: 10mm 20mm;
             }
 
-            h2.category-title {
-                break-after: avoid;
+            .sheet {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                page-break-after: always;
+                border: none;
             }
 
-            .menu-item {
-                break-inside: avoid;
-            }
-
-            .lang-tag {
-                display: block;
+            @page {
+                margin: 0;
+                size: A4;
             }
         }
     </style>
@@ -209,284 +265,240 @@
 
 <body>
 
-    <div class="menu-container">
+    <div class="sheet">
+        <header>
+            <h1>Bistro Nippon</h1>
+            <div class="right-header-block">
+                <div class="flags-container">
 
-        <div class="lang-tag">FR</div>
-
-        <h1 class="main-title">Bistro Nippon</h1>
-        <div class="subtitle">Cuisine Japonaise Authentique</div>
-
-        <div class="row gx-5">
-            <div class="col-6">
-
-                <h2 class="category-title mt-0">Entrées & Tapas</h2>
-
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Magret de Canard Rôti</span>
-                        <span class="item-price">19 DT</span>
-                    </div>
-                    <div class="item-desc">Magret de Canard Grillé 60g, Sauce Teriyaki</div>
+                    <img src="{{ asset('images/tunisie.png') }}" alt="TN" class="flag-fr">
+                    <img src="{{ asset('images/france.png') }}" alt="FR" class="flag-fr">
                 </div>
-
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Poulet Paiko</span>
-                        <span class="item-price">19 DT</span>
-                    </div>
-                    <div class="item-desc">Poulet frit avec une sauce à la japonaise</div>
+                <div class="sub-header">
+                    Tunisia / La Marsa<br>
+                    Cuisine Japonaise "Bnina"
                 </div>
+            </div>
+        </header>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Soupe Miso Fruits de Mer</span>
-                        <span class="item-price">17 DT</span>
-                    </div>
-                    <div class="item-desc">Soupe miso aux fruits de mer et algues wakamé</div>
-                </div>
+        <div class="grid-container">
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Soupe Miso Wakamé</span>
-                        <span class="item-price">8 DT</span>
-                    </div>
-                    <div class="item-desc">Soupe miso aux algues vertes wakamé</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Tofu Caprese</span>
-                        <span class="item-price">12 DT</span>
-                    </div>
-                    <div class="item-desc">Tofu mariné pendant 24h, texture crémeuse</div>
-                </div>
+            <div class="column">
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Harusame & kikurage</span>
-                        <span class="item-price">14 DT</span>
-                    </div>
-                    <div class="item-desc">Vermicelles de soja transparents, champignons noirs</div>
-                </div>
+                <section>
+                    <h2>Kémia & Tapas <span class="derja-tag">Taftif</span></h2>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Wakamé Zestée</span>
-                        <span class="item-price">12 DT</span>
-                    </div>
-                    <div class="item-desc">Algues et champignons noirs, légumes, huile de sésame et citron</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Croquettes <small>(2 pcs)</small></span>
-                        <span class="item-price">8 DT</span>
-                    </div>
-                    <div class="item-desc">Croquettes de pommes de terre, sauce teriyaki maison</div>
-                </div>
-
-                <h2 class="category-title">Donburi & Riz</h2>
-
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Donburi au Bœuf</span>
-                        <span class="item-price">35 DT</span>
-                    </div>
-                    <div class="item-desc">Grande portion de riz, bœuf grillé 150g, légumes</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Katsu Don (Poulet)</span>
-                        <span class="item-price">28 DT</span>
-                    </div>
-                    <div class="item-desc">Grande portion de riz, poulet frit, oignon, omelette</div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Onigiri <small>(1 pièce)</small></span>
-                    </div>
-                    <div class="option-group">
-                        <div class="option-row">
-                            <span class="option-name">Fromage</span>
-                            <span class="option-price">6 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Canard Rosé</span><span class="price">19</span>
                         </div>
-                        <div class="option-row">
-                            <span class="option-name">Poulet</span>
-                            <span class="option-price">7 DT</span>
+                        <div class="desc">Magret de Canard Grillé 60g, Sauce Teriyaki maison.</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Djej Poulet Paiko</span><span
+                                class="price">19</span>
+                        </div>
+                        <div class="desc">Poulet frit croustillant, mariné sauce japonaise.</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Soupe Miso Fruits de Mer</span><span
+                                class="price">17</span></div>
+                        <div class="desc">Bouillon traditionnel, fruits de mer, wakamé.</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Soupe Miso Wakamé</span><span class="price">8</span>
+                        </div>
+                        <div class="desc">Bouillon miso classique aux algues.</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Tofu Tokyo Caprese</span><span
+                                class="price">12</span>
+                        </div>
+                        <div class="desc">Protéine de soja saine, marinade maison soja et huile d'olive. Servi avec
+                            pain.</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Harusame & Champignons noirs</span>
+                            <span class="price">14</span>
+                        </div>
+                        <div class="desc">Salade de vermicelles soja et Kikurage (champignons noirs).</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Wakamé Zestée</span><span class="price">12</span>
+                        </div>
+                        <div class="desc">Algues verts, huile de sésame, citron frais.</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Croquettes (2pcs)</span><span class="price">8</span>
+                        </div>
+                        <div class="desc">Pommes de terre écrasées, panure panko, sauce.</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Donburi <span class="derja-tag">Bol de Riz</span></h2>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Donburi au Bœuf</span><span class="price">35</span>
+                        </div>
+                        <div class="desc">Grand bol de riz, bœuf émincé grillé, oignons.</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Katsu Don (Poulet)</span><span
+                                class="price">28</span></div>
+                        <div class="desc">Poulet pané mijoté avec œuf sur riz.</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-top"><span class="name">Onigiri (1pc)</span></div>
+                        <div class="options">
+                            <span class="opt-item">Fromage 6</span>
+                            <span class="opt-item">Poulet 7</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Riz Blanc</span>
-                        <span class="item-price">4 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Riz Blanc</span><span class="price">4</span></div>
                     </div>
-                </div>
+                </section>
 
-                <h2 class="category-title">Menu Enfant</h2>
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Set Riz Sauté / Nouilles</span>
-                        <span class="item-price">15 DT</span>
+                <section>
+                    <h2>Menu Sghar (enfant) <span class="derja-tag">Sghar</span></h2>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Set Riz Sauté / Nouilles</span><span
+                                class="price">15</span></div>
+                        <div class="desc">Portion adaptée + Poulet frit (Karaage).</div>
                     </div>
-                    <div class="item-desc">Mini portion (riz ou nouilles) + poulet frit</div>
-                </div>
+                </section>
 
+                <section>
+                    <h2>Desserts <span class="derja-tag">Hlou</span></h2>
+                    <div class="item">
+                        <div class="desc" style="font-style: normal; color: var(--text-main);">
+                            Nos desserts changent selon l'inspiration.<br>
+                            Veuillez demander la sélection du jour.
+                        </div>
+                    </div>
+                </section>
             </div>
 
-            <div class="col-6">
+            <div class="column">
 
-                <h2 class="category-title mt-0">Ramen</h2>
+                <section>
+                    <h2>Ramen <span class="derja-tag">Nouilles Soupe</span></h2>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Ramen Tantan Épicé</span>
-                    </div>
-                    <div class="item-desc">Bouillon riche sésame et miso pimenté, bœuf haché</div>
-                    <div class="option-group">
-                        <div class="option-row">
-                            <span class="option-name">Wakamé</span>
-                            <span class="option-price">31.5 DT</span>
-                        </div>
-                        <div class="option-row">
-                            <span class="option-name">Poulet Frit</span>
-                            <span class="option-price">33 DT</span>
-                        </div>
-                        <div class="option-row">
-                            <span class="option-name">Bœuf (150g)</span>
-                            <span class="option-price">43 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Ramen Tantan Épicé</span></div>
+                        <div class="desc">Bouillon sésame riche, huile pimentée (Attention, c'est Har !).</div>
+                        <div class="options">
+                            <span class="opt-item">Wakamé 31.5</span>
+                            <span class="opt-item">Poulet 33</span>
+                            <span class="opt-item">Bœuf 43</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Ramen Tokyo Soja</span>
-                    </div>
-                    <div class="item-desc">Bouillon classique et léger à la sauce soja, œuf</div>
-                    <div class="option-group">
-                        <div class="option-row">
-                            <span class="option-name">Poulet & Légumes</span>
-                            <span class="option-price">29 DT</span>
-                        </div>
-                        <div class="option-row">
-                            <span class="option-name">Poulet Frit</span>
-                            <span class="option-price">33 DT</span>
-                        </div>
-                        <div class="option-row">
-                            <span class="option-name">Bœuf (150g)</span>
-                            <span class="option-price">43 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Ramen Tokyo Soja</span></div>
+                        <div class="desc">Bouillon clair sauce soja, saveur authentique.</div>
+                        <div class="options">
+                            <span class="opt-item">Poulet/Lég 29</span>
+                            <span class="opt-item">Poulet Frit 33</span>
+                            <span class="opt-item">Bœuf 43</span>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <h2 class="category-title">Udon</h2>
+                <section>
+                    <h2>Udon <span class="derja-tag">Nouilles Épaisses</span></h2>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Udon Forestier</span>
-                    </div>
-                    <div class="item-desc">Nouilles nappées d'une crème d'épinards, champignons</div>
-                    <div class="option-group">
-                        <div class="option-row">
-                            <span class="option-name">Algues Nori</span>
-                            <span class="option-price">29 DT</span>
-                        </div>
-                        <div class="option-row">
-                            <span class="option-name">Fruits de Mer</span>
-                            <span class="option-price">39 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Udon Forestier</span></div>
+                        <div class="desc">Crème d'épinards, champignons, nouilles épaisses.</div>
+                        <div class="options">
+                            <span class="opt-item">Nori 29</span>
+                            <span class="opt-item">Fruits de Mer 39</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Udon Gingembre</span>
-                    </div>
-                    <div class="item-desc">Bouillon chaud gingembre et sauce soja, poireaux</div>
-                    <div class="option-group">
-                        <div class="option-row">
-                            <span class="option-name">Algues Mixtes</span>
-                            <span class="option-price">30 DT</span>
-                        </div>
-                        <div class="option-row">
-                            <span class="option-name">Fruits de Mer</span>
-                            <span class="option-price">39 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Udon Gingembre</span></div>
+                        <div class="desc">Bouillon chaud au gingembre, poireaux.</div>
+                        <div class="options">
+                            <span class="opt-item">Algues 30</span>
+                            <span class="opt-item">Fruits de Mer 39</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Udon Poulet Katsu</span>
-                        <span class="item-price">28 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Udon Poulet Katsu</span><span
+                                class="price">28</span></div>
+                        <div class="desc">Udon avec poulet pané croustillant.</div>
                     </div>
-                    <div class="item-desc">Nouilles épaisses avec poulet frit, sauce teriyaki</div>
-                </div>
+                </section>
 
-                <h2 class="category-title">Yakisoba</h2>
+                <section>
+                    <h2>Yakisoba <span class="derja-tag">Sautées</span></h2>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Yakisoba Nippon</span>
-                    </div>
-                    <div class="item-desc">Nouilles fines sautées aux légumes émincés</div>
-                    <div class="option-group">
-                        <div class="option-row">
-                            <span class="option-name">Algues & Légumes</span>
-                            <span class="option-price">28 DT</span>
-                        </div>
-                        <div class="option-row">
-                            <span class="option-name">Poulet Paiko</span>
-                            <span class="option-price">33 DT</span>
-                        </div>
-                        <div class="option-row">
-                            <span class="option-name">Fruits de Mer</span>
-                            <span class="option-price">39 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Yakisoba Nippon</span></div>
+                        <div class="desc">Nouilles sautées sauce spéciale, légumes.</div>
+                        <div class="options">
+                            <span class="opt-item">Légumes 28</span>
+                            <span class="opt-item">Paiko 33</span>
+                            <span class="opt-item">Fruits de Mer 39</span>
                         </div>
                     </div>
-                </div>
 
-                <h2 class="category-title">Desserts & Thés</h2>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Yakisoba Bœuf BBQ</span><span
+                                class="price">43</span></div>
+                        <div class="desc">Nouilles fines sautées, accompagnées de bœuf (150g) en tranches fines.
+                        </div>
+                    </div>
+                </section>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Gelée d'Amande "Annin"</span>
-                        <span class="item-price">9 DT</span>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Pudding Matcha</span>
-                        <span class="item-price">9 DT</span>
-                    </div>
-                </div>
+                <section>
+                    <h2>Boissons <span class="derja-tag">Mchroubèt</span></h2>
 
-                <div style="margin-bottom: 0.8rem;"></div>
-
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Thé vert Sencha <small>(600ml)</small></span>
-                        <span class="item-price">9 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Mystic Kombucha</span><span
+                                class="price">12</span></div>
+                        <div class="desc">Hibiscus / Cannelle. Probiotiques naturels.</div>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Citronnade Chaude</span>
-                        <span class="item-price">9 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Thé Vert</span><span class="price">9</span></div>
+                        <div class="desc">Thé japonais chaud, riche en antioxydants.</div>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Eau <small>(1.5L)</small> / Soda</span>
-                        <span class="item-price">4 DT</span>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Citronnade Chaude</span><span
+                                class="price">9</span></div>
+                        <div class="desc">Saveur naturellement sucrée du sucre de canne sans ajout de sucre raffiné.
+                        </div>
                     </div>
-                </div>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Eau Minérale</span><span class="price">4</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-top"><span class="name">Soda</span><span class="price">4</span></div>
+                    </div>
+                </section>
 
             </div>
         </div>
+
+        <footer>
+            <span>Makrouna Japonia Diari</span>
+            <span>Sahha !</span>
+        </footer>
+
     </div>
 
 </body>

@@ -75,6 +75,12 @@ Route::get('/fumi', function () {
 Route::get('/gf_carte', function () {
     return view('gf_carte');
 });
+Route::get('/m9_menu', function () {
+    return view('m9_menu');
+});
+Route::get('/m9_menu_jp', function () {
+    return view('m9_menu_jp');
+});
 Route::get('/fumi2', function () {
     return view('fumi2');
 });
