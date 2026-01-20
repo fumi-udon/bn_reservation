@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ensô x bistronippon - Menu (Japanese Hybrid)</title>
+    <title>Ensô x bistronippon - Menu (Japanese Luxury Final)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -394,17 +394,18 @@
                 <section>
                     <h2>ラーメン <span class="en">Ramen Nippon</span></h2>
                     <div style="font-size: 8.5px; color: var(--text-sub); margin-bottom: 10px; font-weight: 300;">
-                        シェフ特製 "黄金シルキースープ" (コラーゲン・旨味 / 化学調味料不使用)
+                        シェフ特製 "黄金の旨味" スープ (コラーゲン・凝縮されたコク / 化学調味料不使用)
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">鶏白湯 - 醤油</span><span class="price">XX</span></div>
+                        <div class="item-top"><span class="name">"黄金" 旨味ラーメン (醤油)</span><span class="price">XX</span>
+                        </div>
                         <div class="desc">特製醤油ダレと黄金スープのシグネチャーラーメン。</div>
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">鶏白湯 - 担々麺</span><span class="price">XX</span></div>
-                        <div class="desc">濃厚な胡麻の香りと自家製ラー油。ピリ辛の肉味噌乗せ。</div>
+                        <div class="item-top"><span class="name">"濃厚" 旨味担々麺</span><span class="price">XX</span></div>
+                        <div class="desc">胡麻の香りと自家製ラー油。濃厚なピリ辛スープ。</div>
                     </div>
 
                     <div class="item">
@@ -431,7 +432,7 @@
 
                     <div class="gallery-row">
                         <div class="gallery-item">
-                            <span class="figure-caption">Fig 03. 鶏白湯ラーメン</span>
+                            <span class="figure-caption">Fig 03. 黄金旨味ラーメン</span>
                             <div class="img-container">
                                 <img src="{{ asset('images/mix_ramen.png') }}" alt="Ramen" class="img-full">
                             </div>
@@ -460,7 +461,7 @@
                     </div>
 
                     <div class="item">
-                        <div class="item-top"><span class="name">まぜそば - チキン</span><span class="price">XX</span>
+                        <div class="item-top"><span class="name">まぜそば - オリジナル</span><span class="price">XX</span>
                         </div>
                         <div class="desc">鶏チャーシューと特製ガーリックオイルの定番スタイル。</div>
                     </div>
