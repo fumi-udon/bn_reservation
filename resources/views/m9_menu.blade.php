@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ensô x bistronippon - Menu (English Final)</title>
+    <title>Ensô x bistronippon - Menu (Final Hybrid)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -353,7 +353,7 @@
                     <div class="item">
                         <div class="item-top"><span class="name">Roast Beef Plate</span><span class="price">XX</span>
                         </div>
-                        <div class="desc">Slices of tender roast beef.</div>
+                        <div class="desc">Slices of tender roast beef (Tataki style).</div>
                     </div>
 
                     <div class="item">
@@ -421,6 +421,12 @@
                     </div>
 
                     <div class="item">
+                        <div class="item-top"><span class="name">Luxury Beef Ramen</span><span
+                                class="price">XX</span></div>
+                        <div class="desc">Golden broth topped with slices of Roast Beef.</div>
+                    </div>
+
+                    <div class="item">
                         <div class="item-top"><span class="name">Mala Ramen</span><span class="price">XX</span></div>
                         <div class="desc">Infused with Exclusive "Mala" Sauce.</div>
                         <div class="mala-box">
@@ -440,9 +446,9 @@
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <span class="figure-caption">Fig 04. Mala Ramen</span>
+                            <span class="figure-caption">Fig 04. Ebi Ramen</span>
                             <div class="img-container">
-                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Mala" class="img-full">
+                                <img src="{{ asset('images/mix_ramen.png') }}" alt="Ebi Ramen" class="img-full">
                             </div>
                         </div>
                     </div>
@@ -455,10 +461,10 @@
                 <section
                     style="background-color: var(--highlight-bg); padding: 8px; border-radius: 4px; margin: -8px -8px 20px -8px;">
 
-                    <h2 style="border-color: #d1d5db;">Tokyo Mix Ramen <span class="jp">(Mazesoba)</span></h2>
+                    <h2 style="border-color: #d1d5db;">Tokyo Mix Ramen <span class="jp">まぜそば</span></h2>
 
                     <div style="font-size: 8.5px; color: var(--text-main); margin-bottom: 10px; font-weight: 500;">
-                        Japanese Mixing Noodles (Rich Umami Sauce).<br>
+                        (Mazesoba) Japanese Mixing Noodles with Rich Sauce.<br>
                         Includes Mini Soup & Dive Rice. <span style="color: var(--accent-emerald-text);">★ Chef's
                             Recommendation</span>
                     </div>
@@ -482,6 +488,12 @@
                     </div>
 
                     <div class="item">
+                        <div class="item-top"><span class="name">Mix Ramen - Roast Beef</span><span
+                                class="price">XX</span></div>
+                        <div class="desc">Luxury style with Roast Beef & Egg Yolk.</div>
+                    </div>
+
+                    <div class="item">
                         <div class="item-top"><span class="name">Mix Ramen - "Red Mala"</span><span
                                 class="price">XX</span></div>
                         <div class="desc">Exclusive Spicy & Numbing Sauce. Select Topping:</div>
@@ -492,9 +504,9 @@
                     </div>
 
                     <div class="figure-box single-image">
-                        <span class="figure-caption">Fig 05. Tokyo Mix Ramen Set</span>
+                        <span class="figure-caption">Fig 05. Tokyo Mazesoba (Beef)</span>
                         <div class="img-container">
-                            <img src="{{ asset('images/mix_ramen.png') }}" alt="Mix Ramen Set" class="img-full">
+                            <img src="{{ asset('images/mix_ramen.png') }}" alt="Mazesoba Set" class="img-full">
                         </div>
                     </div>
                 </section>
@@ -527,6 +539,12 @@
                     </div>
 
                     <div class="item">
+                        <div class="item-top"><span class="name">Curry - Roast Beef</span><span
+                                class="price">XX</span></div>
+                        <div class="desc">Tokyo Curry with tender Roast Beef.</div>
+                    </div>
+
+                    <div class="item">
                         <div class="item-top"><span class="name">Daily Onigiri</span><span class="price">XX</span>
                         </div>
                         <div class="desc">Handmade Rice Balls (Limited Qty).</div>
@@ -551,9 +569,9 @@
                 <section>
                     <h2>Drinks & Sweets <span class="jp">甘味・飲料</span></h2>
                     <div class="options" style="justify-content: space-between; width: 100%;">
-                        <span style="font-size: 9px; color: var(--text-main);">Mystic Kombucha (12)</span>
-                        <span style="font-size: 9px; color: var(--text-main);">Green Tea / Citronnade (9)</span>
-                        <span style="font-size: 9px; color: var(--text-main);">Water / Soda (4)</span>
+                        <span style="font-size: 8.5px; color: var(--text-main);">Mystic Kombucha (12)</span>
+                        <span style="font-size: 8.5px; color: var(--text-main);">Green Tea / Citronnade (9)</span>
+                        <span style="font-size: 8.5px; color: var(--text-main);">Water / Soda (4)</span>
                     </div>
                     <div class="desc" style="margin-top: 6px;">
                         <strong>Daily Dessert:</strong> Please ask our team.
