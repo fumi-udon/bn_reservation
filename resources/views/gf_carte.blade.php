@@ -458,7 +458,7 @@
 
                         <div class="item">
                             <div class="item-top">
-                                <span class="name">Soupe Miso Wakamé</span>
+                                <span class="name"><span class="badge gf">GF</span>Soupe Miso Wakamé</span>
                                 <span class="price">9</span>
                             </div>
                             <div class="desc">Bouillon miso traditionnel aux algues.</div>
