@@ -1,46 +1,85 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bistro Nippon - Sunday Menu</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Bistro Nippon') }} - @yield('title', 'Menu')</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
         rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
-        /* ■■■ BISTRONIPPON DESIGN SYSTEM ■■■ */
+        /* ■■■ Code 1 Base Styles ■■■ */
+        .main-content {
+            position: relative;
+            background: none;
+            padding: 40px 10px;
+            display: flex;
+            align-items: flex-start;
+            /* Changed to flex-start for long menu */
+            justify-content: center;
+            text-align: left;
+            /* Reset text align */
+            min-height: 100vh;
+            color: #fff;
+            flex: 1;
+        }
+
+        .main-content::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('{{ asset('images/reservation-bg.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            z-index: -2;
+        }
+
+        .main-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* ■■■ Code 2 Menu Styles ■■■ */
         :root {
             --bg-color: #ffffff;
             --text-main: #2f3e46;
             --text-sub: #7f8c8d;
             --accent-blue: #004e64;
             --line-color: #b0bec5;
-            --body-bg: #e5e5e5;
-
-            /* Badge Colors */
             --gf-bg: #d4edda;
             --gf-text: #155724;
             --mg-bg: #fff3cd;
             --mg-text: #856404;
         }
 
-        * {
+        /* Reset for Menu Content */
+        .sheet * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--body-bg);
-            font-family: 'Inter', sans-serif;
             color: var(--text-main);
-            font-size: 14px;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
+            /* Ensure text is dark inside sheet */
         }
 
         /* --- CONTAINER --- */
@@ -48,15 +87,21 @@
             background: var(--bg-color);
             margin: 0 auto;
             position: relative;
-            box-shadow: 0 4px 20px rgba(0, 78, 100, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             width: 100%;
-            min-height: 100vh;
+            max-width: 600px;
+            /* Mobile default max-width */
             padding: 20px;
+            border-radius: 4px;
+            /* Slight radius */
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         /* --- HEADER --- */
-        header {
+        .sheet header {
             border-bottom: 2px solid var(--line-color);
             padding-bottom: 15px;
             margin-bottom: 20px;
@@ -73,6 +118,8 @@
             line-height: 1;
             color: var(--accent-blue);
             margin-bottom: 5px;
+            font-family: 'Inter', sans-serif;
+            /* Override Playfair from Code 1 if needed, or keep */
         }
 
         .brand-group .subtitle {
@@ -147,7 +194,7 @@
             color: var(--mg-text);
         }
 
-        /* --- GRID CONTAINER (Default Mobile) --- */
+        /* --- GRID CONTAINER --- */
         .grid-container {
             display: flex;
             flex-direction: column;
@@ -161,11 +208,11 @@
         }
 
         /* --- SECTIONS & ITEMS --- */
-        section {
+        .sheet section {
             margin-bottom: 10px;
         }
 
-        h2 {
+        .sheet h2 {
             font-size: 16px;
             font-weight: 600;
             text-transform: uppercase;
@@ -177,9 +224,10 @@
             justify-content: space-between;
             align-items: flex-end;
             color: var(--accent-blue);
+            font-family: 'Inter', sans-serif;
         }
 
-        h2 span.sub {
+        .sheet h2 span.sub {
             font-weight: 400;
             font-size: 12px;
             color: var(--text-sub);
@@ -221,8 +269,8 @@
             line-height: 1.4;
         }
 
-        /* --- FOOTER --- */
-        footer {
+        /* --- FOOTER (Menu specific) --- */
+        .sheet footer {
             margin-top: 40px;
             border-top: 1px solid var(--line-color);
             padding-top: 20px;
@@ -236,25 +284,20 @@
             color: var(--text-sub);
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            background: none;
+            /* Override Code 1 footer if conflicting */
         }
 
-        /* ■■■ DESKTOP & PRINT SETTINGS (Fixed Layout) ■■■ */
-        @media screen and (min-width: 769px),
-        print {
-            body {
-                font-size: 10px;
-                padding: 20px 0;
-            }
-
+        /* ■■■ DESKTOP SETTINGS (Paper Look) ■■■ */
+        @media screen and (min-width: 769px) {
             .sheet {
                 width: 210mm;
-                /* min-height: 297mm; */
+                max-width: none;
                 padding: 35mm 22mm 25mm 22mm;
-                margin: 20px auto;
                 height: auto;
             }
 
-            header {
+            .sheet header {
                 padding-bottom: 14px;
                 margin-bottom: 26px;
             }
@@ -271,41 +314,36 @@
                 text-align: right;
             }
 
-            /* --- 2-COLUMN LAYOUT WITH DIVIDER --- */
             .grid-container {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 0;
-                /* Clear grid gap to control spacing via padding */
             }
 
             .column {
                 gap: 20px;
             }
 
-            /* Separator Line Logic */
             .column:first-child {
                 border-right: 1px solid var(--line-color);
                 padding-right: 25px;
-                /* Space before the line */
             }
 
             .column:last-child {
                 padding-left: 25px;
-                /* Space after the line */
             }
 
-            section {
+            .sheet section {
                 margin-bottom: 22px;
             }
 
-            h2 {
+            .sheet h2 {
                 font-size: 11.5px;
                 padding-bottom: 4px;
                 margin-bottom: 12px;
             }
 
-            h2 span.sub {
+            .sheet h2 span.sub {
                 font-size: 9.5px;
             }
 
@@ -337,45 +375,11 @@
                 margin-bottom: 20px;
             }
 
-            footer {
-                position: absolute;
-                bottom: 20mm;
-                left: 22mm;
-                right: 22mm;
-                padding: 10px 0 0 0;
+            .sheet footer {
                 flex-direction: row;
                 justify-content: space-between;
                 text-align: left;
                 font-size: 8.5px;
-            }
-        }
-
-        /* --- PRINT SPECIFICS --- */
-        @media print {
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-
-            body {
-                background: none;
-                margin: 0;
-            }
-
-            .sheet {
-                margin: 0;
-                box-shadow: none;
-                width: 210mm;
-                height: 297mm;
-                /* Force A4 Height */
-                page-break-after: always;
-                border: none;
-                overflow: hidden;
-            }
-
-            @page {
-                margin: 0;
-                size: A4;
             }
         }
     </style>
@@ -383,238 +387,245 @@
 
 <body>
 
-    <div class="sheet">
+    @include('layouts.navbar')
 
-        <header>
-            <div class="brand-group">
-                <h1>BISTRO NIPPON</h1>
-                <div class="subtitle">SUNDAY BODY RESET</div>
-            </div>
-            <div class="sub-header">
-                Gluten-Free &<br>Comfort Selections
-            </div>
-        </header>
-
-        <div class="legend">
-            <span class="legend-title">Guide Alimentaire</span>
-            <div class="legend-items">
-                <div class="legend-item">
-                    <span class="badge gf">GF</span> = Gluten Free (Sans Gluten)
-                </div>
-                <div class="legend-item">
-                    <span class="badge mg">MG</span> = Minimal Gluten (Traces < 20ppm) </div>
-                        <div class="legend-item">
-                            (No Mark) = Recette standard (Contient du gluten)
-                        </div>
-                </div>
-            </div>
-
-            <div class="grid-container">
-
-                <div class="column">
-
-                    <section>
-                        <h2>Entrées & Tapas <span class="sub">Starters</span></h2>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge mg">MG</span>Caprese Tofu</span>
-                                <span class="price">12</span>
-                            </div>
-                            <div class="desc">Tofu mariné (24h) façon fromage. Tomate, roquette et nori.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Mabo Nasu Tofu</span>
-                                <span class="price">18</span>
-                            </div>
-                            <div class="desc">[Plat seul] Aubergines et tofu mijotés dans une sauce épicée.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge mg">MG</span>Canard Rosé Teriyaki</span>
-                                <span class="price">19</span>
-                            </div>
-                            <div class="desc">Magret de Canard Grillé (60g), Sauce Teriyaki, Légumes.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge mg">MG</span>Harusame & Kikurage</span>
-                                <span class="price">14</span>
-                            </div>
-                            <div class="desc">Salade fraîche de vermicelles et champignons noirs.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge mg">MG</span>Wakame Zesté</span>
-                                <span class="price">12</span>
-                            </div>
-                            <div class="desc">Algues marinées, huile de sésame torréfiée et citron.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge gf">GF</span>Soupe Miso Wakamé</span>
-                                <span class="price">9</span>
-                            </div>
-                            <div class="desc">Bouillon miso traditionnel aux algues.</div>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2>Riz <span class="sub">Donburi & Onigiri</span></h2>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Donburi Crevettes Fromage</span>
-                                <span class="price">36</span>
-                            </div>
-                            <div class="desc">Crevettes mijotées à l'œuf, sauce tamari, fromage.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Donburi Mabo Tofu</span>
-                                <span class="price">31</span>
-                            </div>
-                            <div class="desc">Bol de riz, aubergines, tofu et viande hachée épicée.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge gf">GF</span>Onigiri Fromage</span>
-                                <span class="price">6.5</span>
-                            </div>
-                            <div class="desc">Boule de riz garnie au Fromage, tamari.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge mg">MG</span>Onigiri Canard Miso</span>
-                                <span class="price">8.5</span>
-                            </div>
-                            <div class="desc">Riz fourré au Canard et Aubergine confits au Miso.</div>
-                        </div>
-                    </section>
-
-                </div>
-
-                <div class="column">
-
-                    <section>
-                        <h2>Nouilles <span class="sub">Yakisoba & Ramen</span></h2>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Mabo Maze Ramen</span>
-                                <span class="price">33</span>
-                            </div>
-                            <div class="desc">Nouilles généreusement nappées d'une sauce Mabo riche.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Ramen Tantan Spicy</span>
-                                <span class="price">28</span>
-                            </div>
-                            <div class="desc">Bouillon riche au sésame et miso pimenté, bœuf haché.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Yakisoba Légumes</span>
-                                <span class="price">28</span>
-                            </div>
-                            <div class="desc">Nouilles sautées aux légumes, sauce soja maison.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Yakisoba Fruits de Mer</span>
-                                <span class="price">39</span>
-                            </div>
-                            <div class="desc">Nouilles sautées avec un mix de fruits de mer.</div>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2>Curry Japonais <span class="sub">Rice & Ramen</span></h2>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge gf">GF</span>Curry Rice Légumes</span>
-                                <span class="price">30</span>
-                            </div>
-                            <div class="desc">Sauce curry GF, légumes. (Vegan)</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge gf">GF</span>Curry Rice Poulet</span>
-                                <span class="price">35</span>
-                            </div>
-                            <div class="desc">Sauce curry GF, riz blanc et poulet.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name"><span class="badge gf">GF</span>Curry Rice Crevettes</span>
-                                <span class="price">40</span>
-                            </div>
-                            <div class="desc">Sauce curry GF, riz blanc et crevettes.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Curry Ramen Poulet</span>
-                                <span class="price">35</span>
-                            </div>
-                            <div class="desc">Bouillon de curry, nouilles maison, poulet grillé.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Curry Ramen Crevettes</span>
-                                <span class="price">40</span>
-                            </div>
-                            <div class="desc">Bouillon de curry, nouilles maison, crevettes.</div>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2>Boissons <span class="sub">Healthy Drinks</span></h2>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Mystic Kombucha</span>
-                                <span class="price">12</span>
-                            </div>
-                            <div class="desc">Hibiscus / Cannelle. Riche en probiotiques.</div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-top">
-                                <span class="name">Thé Vert Sencha</span>
-                                <span class="price">9</span>
-                            </div>
-                            <div class="desc">Thé vert japonais chaud, riche en antioxydants.</div>
-                        </div>
-                    </section>
-
-                </div>
-            </div>
-
-            <footer>
-                <span>Authentic Japanese Cuisine</span>
-                <span>Nos desserts changent selon l'inspiration.</span>
-            </footer>
-
+    @env('local')
+        <div>
+            <h3>ローカル環境</h3>
         </div>
+    @endenv
 
+    <section class="main-content">
+
+        <div class="sheet">
+            <header>
+                <div class="brand-group">
+                    <h1>BISTRO NIPPON</h1>
+                    <div class="subtitle">SUNDAY BODY RESET</div>
+                </div>
+                <div class="sub-header">
+                    Gluten-Free &<br>Comfort Selections
+                </div>
+            </header>
+
+            <div class="legend">
+                <span class="legend-title">Guide Alimentaire</span>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <span class="badge gf">GF</span> = Gluten Free (Sans Gluten)
+                    </div>
+                    <div class="legend-item">
+                        <span class="badge mg">MG</span> = Minimal Gluten (Traces < 20ppm) </div>
+                            <div class="legend-item">
+                                (No Mark) = Recette standard (Contient du gluten)
+                            </div>
+                    </div>
+                </div>
+
+                <div class="grid-container">
+                    <div class="column">
+                        <section>
+                            <h2>Entrées & Tapas <span class="sub">Starters</span></h2>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge mg">MG</span>Caprese Tofu</span>
+                                    <span class="price">12</span>
+                                </div>
+                                <div class="desc">Tofu mariné (24h) façon fromage. Tomate, roquette et nori.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Mabo Nasu Tofu</span>
+                                    <span class="price">18</span>
+                                </div>
+                                <div class="desc">[Plat seul] Aubergines et tofu mijotés dans une sauce épicée.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge mg">MG</span>Canard Rosé Teriyaki</span>
+                                    <span class="price">19</span>
+                                </div>
+                                <div class="desc">Magret de Canard Grillé (60g), Sauce Teriyaki, Légumes.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge mg">MG</span>Harusame & Kikurage</span>
+                                    <span class="price">14</span>
+                                </div>
+                                <div class="desc">Salade fraîche de vermicelles et champignons noirs.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge mg">MG</span>Wakame Zesté</span>
+                                    <span class="price">12</span>
+                                </div>
+                                <div class="desc">Algues marinées, huile de sésame torréfiée et citron.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge gf">GF</span>Soupe Miso Wakamé</span>
+                                    <span class="price">9</span>
+                                </div>
+                                <div class="desc">Bouillon miso traditionnel aux algues.</div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h2>Riz <span class="sub">Donburi & Onigiri</span></h2>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Donburi Crevettes Fromage</span>
+                                    <span class="price">36</span>
+                                </div>
+                                <div class="desc">Crevettes mijotées à l'œuf, sauce tamari, fromage.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Donburi Mabo Tofu</span>
+                                    <span class="price">31</span>
+                                </div>
+                                <div class="desc">Bol de riz, aubergines, tofu et viande hachée épicée.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge gf">GF</span>Onigiri Fromage</span>
+                                    <span class="price">6.5</span>
+                                </div>
+                                <div class="desc">Boule de riz garnie au Fromage, tamari.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge mg">MG</span>Onigiri Canard Miso</span>
+                                    <span class="price">8.5</span>
+                                </div>
+                                <div class="desc">Riz fourré au Canard et Aubergine confits au Miso.</div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="column">
+                        <section>
+                            <h2>Nouilles <span class="sub">Yakisoba & Ramen</span></h2>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Mabo Maze Ramen</span>
+                                    <span class="price">33</span>
+                                </div>
+                                <div class="desc">Nouilles généreusement nappées d'une sauce Mabo riche.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Ramen Tantan Spicy</span>
+                                    <span class="price">28</span>
+                                </div>
+                                <div class="desc">Bouillon riche au sésame et miso pimenté, bœuf haché.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Yakisoba Légumes</span>
+                                    <span class="price">28</span>
+                                </div>
+                                <div class="desc">Nouilles sautées aux légumes, sauce soja maison.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Yakisoba Fruits de Mer</span>
+                                    <span class="price">39</span>
+                                </div>
+                                <div class="desc">Nouilles sautées avec un mix de fruits de mer.</div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h2>Curry Japonais <span class="sub">Rice & Ramen</span></h2>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge gf">GF</span>Curry Rice Légumes</span>
+                                    <span class="price">30</span>
+                                </div>
+                                <div class="desc">Sauce curry GF, légumes. (Vegan)</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge gf">GF</span>Curry Rice Poulet</span>
+                                    <span class="price">35</span>
+                                </div>
+                                <div class="desc">Sauce curry GF, riz blanc et poulet.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name"><span class="badge gf">GF</span>Curry Rice Crevettes</span>
+                                    <span class="price">40</span>
+                                </div>
+                                <div class="desc">Sauce curry GF, riz blanc et crevettes.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Curry Ramen Poulet</span>
+                                    <span class="price">35</span>
+                                </div>
+                                <div class="desc">Bouillon de curry, nouilles maison, poulet grillé.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Curry Ramen Crevettes</span>
+                                    <span class="price">40</span>
+                                </div>
+                                <div class="desc">Bouillon de curry, nouilles maison, crevettes.</div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h2>Boissons <span class="sub">Healthy Drinks</span></h2>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Mystic Kombucha</span>
+                                    <span class="price">12</span>
+                                </div>
+                                <div class="desc">Hibiscus / Cannelle. Riche en probiotiques.</div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-top">
+                                    <span class="name">Thé Vert Sencha</span>
+                                    <span class="price">9</span>
+                                </div>
+                                <div class="desc">Thé vert japonais chaud, riche en antioxydants.</div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <footer>
+                    <span>Authentic Japanese Cuisine</span>
+                    <span>Nos desserts changent selon l'inspiration.</span>
+                </footer>
+            </div>
+
+    </section>
+    @include('layouts.footer')
+
+    @stack('scripts')
 </body>
 
 </html>
