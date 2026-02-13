@@ -9,6 +9,7 @@ use App\Models\KiConfiguration;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -94,14 +95,36 @@ class ReservationController extends Controller
             4 => 'Holiday Notice: Our restaurant is currently closed for vacation. We look forward to serving you upon our return. For future reservations, please check back soon.'
         ];
 
+        // ★現在のモードを取得 (デフォルトは 'normal')
+        $reservationMode = Cache::get('reservation_mode', 'normal');
         // // 設定が存在しない場合は通常表示
         return view('reservations.form', [
             'status' => $this->openMode,
             'message' => $errorMessages[1],
-            'config' => null
+            'config' => null,
+            'reservationMode' => $reservationMode // ★これをViewに渡す
         ]);
     }
 
+    public function toggleMode(Request $request)
+    {
+        // PINコード簡易チェック (URLパラメータで受け取る)
+        // ここではPINを としています。好きな数字に変えてください。
+        if ($request->input('pin') !== '2017') {
+            return redirect()->route('reservation.form')->with('error', 'PIN: 2017');
+        }
+
+        // 現在のモードを取得して反転させる
+        $current = Cache::get('reservation_mode', 'normal');
+        $next = ($current === 'normal') ? 'whatsapp' : 'normal';
+
+        // ずっと（無期限に）保存
+        Cache::forever('reservation_mode', $next);
+
+        $msg = ($next === 'whatsapp') ? 'Mode: WhatsApp' : 'Mode: Normal mail';
+
+        return redirect()->route('reservation.form')->with('success', $msg);
+    }
 
     public function confirm(ReservationRequest $request)
     {

@@ -37,6 +37,9 @@ Route::prefix('reservation')->group(function () {
 });
 
 Route::get('/reservation_wa', [ReservationController::class, 'reservation_wa'])->name('reservation.wa');
+// routes/web.php の Route::prefix('reservation')->group の中に以下を追加
+Route::get('/toggle-mode', [ReservationController::class, 'toggleMode'])->name('reservation.toggle');
+
 
 use App\Http\Controllers\Auth\LoginController;
 
@@ -101,6 +104,9 @@ Route::get('/fumi7', function () {
 });
 Route::get('/fumi8', function () {
     return view('fumi8');
+});
+Route::get('/job_level', function () {
+    return view('job_level');
 });
 Route::get('/fumi_cartevisite', function () {
     return view('fumi_cartevisite');
