@@ -32,7 +32,6 @@
             flex: 1;
         }
 
-        /* 背景画像用の疑似要素 */
         .main-content::before {
             content: '';
             position: fixed;
@@ -47,7 +46,6 @@
             z-index: -2;
         }
 
-        /* 暗いオーバーレイ層 */
         .main-content::after {
             content: '';
             position: absolute;
@@ -70,7 +68,6 @@
             z-index: 1;
         }
 
-        /* Headline and paragraph styling */
         .content-container h1 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
@@ -130,8 +127,8 @@
     @endenv
 
     <section class="main-content">
-        {{-- システム停止などのステータスチェック --}}
         @if (isset($status) && $status > 0)
+            {{-- システム停止中などの表示 --}}
             <div class="content-container">
                 <div class="alert alert-warning text-center">
                     <h3 class="alert-heading">Notice</h3>
@@ -145,9 +142,20 @@
                 </div>
             </div>
         @else
+            {{-- 予約フォーム表示 --}}
             <div class="content-container">
 
                 <h1>Reservation Request</h1>
+
+                {{-- モード切り替え時のメッセージ --}}
+                @if (session('success'))
+                    <div class="alert alert-success fw-bold">
+                        <i class="bi bi-check-circle-fill"></i> {{ session('success') }}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
 
                 {{-- WhatsAppモード時の案内メッセージ --}}
                 @if (isset($reservationMode) && $reservationMode === 'whatsapp')
@@ -164,7 +172,6 @@
                 <div class="card shadow border-0">
                     <div class="card-body text-start">
 
-                        {{-- バリデーションエラー表示 --}}
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul class="mb-0">
@@ -173,14 +180,6 @@
                                     @endforeach
                                 </ul>
                             </div>
-                        @endif
-
-                        {{-- フラッシュメッセージ --}}
-                        @if (session('success'))
-                            <div class="alert alert-success">{{ session('success') }}</div>
-                        @endif
-                        @if (session('error'))
-                            <div class="alert alert-danger">{{ session('error') }}</div>
                         @endif
 
                         <form method="POST" action="{{ route('reservation.confirm') }}" class="needs-validation"
@@ -307,9 +306,7 @@
         <script>
             // === 1. Secret Door Logic ===
             function secretDoor() {
-                // スタッフしか知らない秘密のプロンプト
                 let pin = prompt("Enter Admin PIN:");
-                // 正解のPINコード (Controllerの設定と合わせる: 1234)
                 if (pin) {
                     window.location.href = "{{ route('reservation.toggle') }}?pin=" + pin;
                 }
@@ -317,20 +314,17 @@
 
             // === 2. WhatsApp Logic ===
             function sendToWhatsApp() {
-                // 入力値取得
                 const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value; // 任意だけどメッセージに含める
+                const email = document.getElementById('email').value;
                 const date = document.getElementById('date').value;
                 const time = document.getElementById('time').value;
                 const guests = document.getElementById('guests').value;
 
-                // 簡易バリデーション (必須項目チェック)
                 if (!name || !date || !time || !guests) {
                     alert('Please fill in Name, Date, Time and Number of Guests.');
                     return;
                 }
 
-                // WhatsAppメッセージ作成
                 const msg =
                     `Hello, I would like to check availability for a reservation.
 
@@ -342,29 +336,31 @@ Email: ${email}
 ----------------
 Sent from Reservation Form`;
 
-                // チュニジアの電話番号 (国番号 216)
                 const phone = "21624986077";
-
-                // URL生成
                 const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-
-                // 遷移
                 window.location.href = url;
             }
 
-            // === 3. Date Picker Logic (既存) ===
+            // === 3. Date Picker Logic (Ramadan Logic Added) ===
             $(document).ready(function() {
                 const $dateInput = $('#date');
 
-                // 年末年始休業チェック
                 $dateInput.on('change', function() {
                     const selectedDate = new Date($(this).val());
-                    const start = new Date(2025, 11, 31); // 2025-12-31
-                    const end = new Date(2026, 0, 4); // 2026-01-04
+
+                    // 日付のみで比較するために時刻をクリア
+                    selectedDate.setHours(0, 0, 0, 0);
+
+                    // ★ラマダン休業 (2026/2/18 - 2026/3/12)
+                    // JSの月は0始まり: 1=2月, 2=3月
+                    const start = new Date(2026, 1, 18); // 2026-02-18
+                    const end = new Date(2026, 2, 12); // 2026-03-12
 
                     if (selectedDate >= start && selectedDate <= end) {
-                        alert('Sorry, we are closed from Dec 31 to Jan 4 for New Year holidays.');
-                        $(this).val('');
+                        alert(
+                            'We will be closed from Feb 18 to Mar 12 for Ramadan. Please select another date.'
+                        );
+                        $(this).val(''); // 日付をクリア
                         return;
                     }
                 });
@@ -372,7 +368,6 @@ Sent from Reservation Form`;
                 // 日付範囲制限
                 const today = new Date();
                 const maxDate = new Date();
-                // configから値が取れない場合のフォールバックを入れています
                 const bookingDays = {{ config('reservation_bn.booking_end_days', 60) }};
                 maxDate.setDate(today.getDate() + bookingDays);
 
